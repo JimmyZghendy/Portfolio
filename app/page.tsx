@@ -229,7 +229,7 @@ export default function Portfolio() {
                 >
                   <div className="w-full h-full rounded-full overflow-hidden bg-black">
                     <img
-                      src="/placeholder.svg?height=160&width=160"
+                      src="/JimmyPhoto.jpg?height=160&width=160"
                       alt="Jimmy Zghendy Profile"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     />
@@ -252,17 +252,22 @@ export default function Portfolio() {
             </div>
 
             <div className="flex justify-center space-x-6 mb-12">
-              {[Github, Linkedin, Mail].map((Icon, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="lg"
-                  className="bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
-                >
-                  <Icon className="w-5 h-5" />
-                </Button>
-              ))}
-            </div>
+            {[
+        { Icon: Github, url: "https://github.com/jimmyzghendy" },
+        { Icon: Linkedin, url: "https://www.linkedin.com/in/jimmy-zghendy/" },
+        { Icon: Mail, url: "mailto:jimmyelzghendy990@gmail.com" },
+              ].map(({ Icon, url }, index) => (
+        <Button
+        key={index}
+        variant="outline"
+        size="lg"
+        className="bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+        onClick={() => window.open(url, '_blank')}
+        >
+      <Icon className="w-5 h-5" />
+    </Button>
+  ))}
+</div>
 
             <ChevronDown className={`w-8 h-8 mx-auto animate-bounce text-${theme.highlight}`} />
           </div>
