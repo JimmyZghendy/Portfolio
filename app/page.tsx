@@ -1,16 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronDown, Github, Linkedin, Mail, Code, Database, Cpu, Zap, Palette, Menu, X, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { useState, useEffect } from "react";
+import {
+  ChevronDown,
+  Github,
+  Linkedin,
+  Mail,
+  Code,
+  Database,
+  Cpu,
+  Zap,
+  Palette,
+  Menu,
+  X,
+  Phone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Portfolio() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isVisible, setIsVisible] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const [currentTheme, setCurrentTheme] = useState(0)
+  const [currentTheme, setCurrentTheme] = useState(0);
 
   const colorThemes = [
     {
@@ -53,52 +66,71 @@ export default function Portfolio() {
       highlight: "rose-400",
       border: "rose-400/30",
     },
-  ]
+  ];
 
-  const theme = colorThemes[currentTheme]
+  const theme = colorThemes[currentTheme];
 
   const cycleTheme = () => {
-    setCurrentTheme((prev) => (prev + 1) % colorThemes.length)
-  }
+    setCurrentTheme((prev) => (prev + 1) % colorThemes.length);
+  };
 
   useEffect(() => {
-    setIsVisible(true)
+    setIsVisible(true);
 
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const skills = [
-    { icon: Code, name: "Frontend Development", color: "from-blue-500 to-cyan-500" },
-    { icon: Database, name: "Backend Systems", color: "from-purple-500 to-pink-500" },
-    { icon: Cpu, name: "Machine Learning", color: "from-green-500 to-emerald-500" },
-    { icon: Zap, name: "Performance Optimization", color: "from-orange-500 to-red-500" },
-  ]
+    {
+      icon: Code,
+      name: "Frontend Development",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      icon: Database,
+      name: "Backend Systems",
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      icon: Cpu,
+      name: "Machine Learning",
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      icon: Zap,
+      name: "Performance Optimization",
+      color: "from-orange-500 to-red-500",
+    },
+  ];
 
   const projects = [
     {
       title: "AI-Powered Analytics Dashboard",
-      description: "Real-time data visualization with machine learning insights",
+      description:
+        "Real-time data visualization with machine learning insights",
       tech: ["React", "Python", "TensorFlow", "D3.js"],
       gradient: "from-violet-600 to-indigo-600",
     },
     {
       title: "Distributed Computing Platform",
-      description: "Scalable microservices architecture for high-performance computing",
+      description:
+        "Scalable microservices architecture for high-performance computing",
       tech: ["Node.js", "Docker", "Kubernetes", "Redis"],
       gradient: "from-emerald-600 to-teal-600",
     },
     {
       title: "Blockchain Voting System",
-      description: "Secure and transparent voting platform using smart contracts",
+      description:
+        "Secure and transparent voting platform using smart contracts",
       tech: ["Solidity", "Web3.js", "React", "IPFS"],
       gradient: "from-rose-600 to-pink-600",
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden relative">
@@ -132,7 +164,9 @@ export default function Portfolio() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className={`text-xl font-bold bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}>
+            <div
+              className={`text-xl font-bold bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
+            >
               JZ
             </div>
 
@@ -168,7 +202,9 @@ export default function Portfolio() {
                 variant="ghost"
                 size="sm"
                 className={`text-${theme.highlight} hover:text-white transition-all duration-300 hover:scale-110`}
-                title={`Switch to ${colorThemes[(currentTheme + 1) % colorThemes.length].name} theme`}
+                title={`Switch to ${
+                  colorThemes[(currentTheme + 1) % colorThemes.length].name
+                } theme`}
               >
                 <Palette className="w-4 h-4" />
               </Button>
@@ -180,7 +216,11 @@ export default function Portfolio() {
                 className="md:hidden text-white"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
               </Button>
             </div>
           </div>
@@ -217,9 +257,16 @@ export default function Portfolio() {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-16">
+        <section
+          id="home"
+          className="min-h-screen flex items-center justify-center px-6 pt-16"
+        >
           <div
-            className={`text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            className={`text-center transition-all duration-1000 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
           >
             <div className="mb-8">
               {/* Profile Image */}
@@ -243,34 +290,42 @@ export default function Portfolio() {
                 Jimmy Zghendy
               </h1>
               <div className="text-xl md:text-2xl text-gray-300 mb-6">
-                <span className="inline-block animate-bounce">Computer Science Engineer</span>
+                <span className="inline-block animate-bounce">
+                  Computer Science Engineer
+                </span>
               </div>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                Crafting innovative solutions through code, algorithms, and cutting-edge technology. Passionate about
-                AI, distributed systems, and creating impactful digital experiences.
+                Crafting innovative solutions through code, algorithms, and
+                cutting-edge technology. Passionate about AI, distributed
+                systems, and creating impactful digital experiences.
               </p>
             </div>
 
-        <div className="flex justify-center space-x-6 mb-12">
-       {[
-        { Icon: Github, url: "https://github.com/JimmyZghendy" },
-        { Icon: Linkedin, url: "https://www.linkedin.com/in/jimmy-zghendy/" },
-        { Icon: Mail, url: "mailto:jimmyelzghendy990@gmail.com" },
-        { Icon: Phone, url: "tel:+96171755803" } // Replace with your actual phone number
-       ].map(({ Icon, url }, index) => (
-    <Button
-      key={index}
-      variant="outline"
-      size="lg"
-      className="bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
-      onClick={() => window.open(url, '_blank')}
-    >
-      <Icon className="w-5 h-5" />
-    </Button>
-  ))}
-  </div>
+            <div className="flex justify-center space-x-6 mb-12">
+              {[
+                { Icon: Github, url: "https://github.com/JimmyZghendy" },
+                {
+                  Icon: Linkedin,
+                  url: "https://www.linkedin.com/in/jimmy-zghendy/",
+                },
+                { Icon: Mail, url: "mailto:jimmyelzghendy990@gmail.com" },
+                { Icon: Phone, url: "tel:+96171755803" }, // Replace with your actual phone number
+              ].map(({ Icon, url }, index) => (
+                <Button
+                  key={index}
+                  variant="outline"
+                  size="lg"
+                  className="bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                  onClick={() => window.open(url, "_blank")}
+                >
+                  <Icon className="w-5 h-5" />
+                </Button>
+              ))}
+            </div>
 
-            <ChevronDown className={`w-8 h-8 mx-auto animate-bounce text-${theme.highlight}`} />
+            <ChevronDown
+              className={`w-8 h-8 mx-auto animate-bounce text-${theme.highlight}`}
+            />
           </div>
         </section>
 
@@ -295,7 +350,9 @@ export default function Portfolio() {
                     >
                       <skill.icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{skill.name}</h3>
+                    <h3 className="text-lg font-semibold text-white mb-2">
+                      {skill.name}
+                    </h3>
                   </CardContent>
                 </Card>
               ))}
@@ -353,11 +410,19 @@ export default function Portfolio() {
                         <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
                           {exp.title}
                         </h3>
-                        <p className={`text-lg text-${theme.highlight} font-semibold`}>{exp.company}</p>
+                        <p
+                          className={`text-lg text-${theme.highlight} font-semibold`}
+                        >
+                          {exp.company}
+                        </p>
                       </div>
-                      <span className="text-gray-400 font-medium mt-2 md:mt-0">{exp.period}</span>
+                      <span className="text-gray-400 font-medium mt-2 md:mt-0">
+                        {exp.period}
+                      </span>
                     </div>
-                    <p className="text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
+                    <p className="text-gray-300 mb-4 leading-relaxed">
+                      {exp.description}
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <span
@@ -392,7 +457,11 @@ export default function Portfolio() {
                   period: "2018 - 2020",
                   gpa: "3.9/4.0",
                   focus: "Artificial Intelligence & Machine Learning",
-                  achievements: ["Dean's List", "Research Assistant", "Published 3 papers"],
+                  achievements: [
+                    "Dean's List",
+                    "Research Assistant",
+                    "Published 3 papers",
+                  ],
                   gradient: "from-violet-500 to-purple-600",
                 },
                 {
@@ -401,7 +470,11 @@ export default function Portfolio() {
                   period: "2014 - 2018",
                   gpa: "3.8/4.0",
                   focus: "Software Engineering & Systems",
-                  achievements: ["Magna Cum Laude", "ACM President", "Hackathon Winner"],
+                  achievements: [
+                    "Magna Cum Laude",
+                    "ACM President",
+                    "Hackathon Winner",
+                  ],
                   gradient: "from-blue-500 to-indigo-600",
                 },
               ].map((edu, index) => (
@@ -414,12 +487,20 @@ export default function Portfolio() {
                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
                       {edu.degree}
                     </h3>
-                    <p className={`text-lg text-${theme.highlight} font-semibold mb-1`}>{edu.school}</p>
+                    <p
+                      className={`text-lg text-${theme.highlight} font-semibold mb-1`}
+                    >
+                      {edu.school}
+                    </p>
                     <p className="text-gray-400 mb-2">{edu.period}</p>
-                    <p className={`text-${theme.highlight} font-medium mb-2`}>GPA: {edu.gpa}</p>
+                    <p className={`text-${theme.highlight} font-medium mb-2`}>
+                      GPA: {edu.gpa}
+                    </p>
                     <p className="text-gray-300 mb-4">Focus: {edu.focus}</p>
                     <div className="space-y-1">
-                      <p className="text-sm text-gray-400 font-medium">Achievements:</p>
+                      <p className="text-sm text-gray-400 font-medium">
+                        Achievements:
+                      </p>
                       {edu.achievements.map((achievement, achIndex) => (
                         <span
                           key={achIndex}
@@ -501,7 +582,9 @@ export default function Portfolio() {
                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">
                       {lang.language}
                     </h3>
-                    <p className={`text-${theme.highlight} font-semibold mb-4`}>{lang.level}</p>
+                    <p className={`text-${theme.highlight} font-semibold mb-4`}>
+                      {lang.level}
+                    </p>
 
                     {/* Progress Bar */}
                     <div className="w-full bg-white/10 rounded-full h-3 mb-2 overflow-hidden">
@@ -510,7 +593,9 @@ export default function Portfolio() {
                         style={{ width: `${lang.proficiency}%` }}
                       />
                     </div>
-                    <p className="text-sm text-gray-400">{lang.proficiency}% Proficiency</p>
+                    <p className="text-sm text-gray-400">
+                      {lang.proficiency}% Proficiency
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -518,17 +603,47 @@ export default function Portfolio() {
 
             {/* Programming Languages Bonus Section */}
             <div className="mt-16">
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">Programming Languages</h3>
+              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
+                Programming Languages
+              </h3>
               <div className="flex flex-wrap justify-center gap-4">
                 {[
-                  { name: "JavaScript", level: 95, color: "from-yellow-400 to-orange-500" },
-                  { name: "Python", level: 90, color: "from-blue-500 to-green-500" },
-                  { name: "TypeScript", level: 88, color: "from-blue-600 to-blue-400" },
-                  { name: "Java", level: 85, color: "from-red-600 to-orange-600" },
-                  { name: "C++", level: 80, color: "from-purple-600 to-blue-600" },
+                  {
+                    name: "JavaScript",
+                    level: 95,
+                    color: "from-yellow-400 to-orange-500",
+                  },
+                  {
+                    name: "Python",
+                    level: 90,
+                    color: "from-blue-500 to-green-500",
+                  },
+                  {
+                    name: "TypeScript",
+                    level: 88,
+                    color: "from-blue-600 to-blue-400",
+                  },
+                  {
+                    name: "Java",
+                    level: 85,
+                    color: "from-red-600 to-orange-600",
+                  },
+                  {
+                    name: "C++",
+                    level: 80,
+                    color: "from-purple-600 to-blue-600",
+                  },
                   { name: "Go", level: 75, color: "from-cyan-500 to-blue-500" },
-                  { name: "Rust", level: 65, color: "from-orange-600 to-red-600" },
-                  { name: "Swift", level: 60, color: "from-orange-500 to-red-500" },
+                  {
+                    name: "Rust",
+                    level: 65,
+                    color: "from-orange-600 to-red-600",
+                  },
+                  {
+                    name: "Swift",
+                    level: 60,
+                    color: "from-orange-500 to-red-500",
+                  },
                 ].map((prog, index) => (
                   <div key={index} className="group relative">
                     <div
@@ -566,7 +681,9 @@ export default function Portfolio() {
                     <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+                    <p className="text-gray-400 mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, techIndex) => (
                         <span
@@ -596,10 +713,30 @@ export default function Portfolio() {
             {/* Stats Overview */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
               {[
-                { label: "Projects Completed", value: "25+", icon: "📊", color: "from-blue-500 to-cyan-500" },
-                { label: "Technologies Used", value: "15+", icon: "⚡", color: "from-purple-500 to-pink-500" },
-                { label: "Years Experience", value: "5+", icon: "🚀", color: "from-green-500 to-emerald-500" },
-                { label: "Client Satisfaction", value: "98%", icon: "⭐", color: "from-orange-500 to-red-500" },
+                {
+                  label: "Projects Completed",
+                  value: "25+",
+                  icon: "📊",
+                  color: "from-blue-500 to-cyan-500",
+                },
+                {
+                  label: "Technologies Used",
+                  value: "15+",
+                  icon: "⚡",
+                  color: "from-purple-500 to-pink-500",
+                },
+                {
+                  label: "Years Experience",
+                  value: "5+",
+                  icon: "🚀",
+                  color: "from-green-500 to-emerald-500",
+                },
+                {
+                  label: "Client Satisfaction",
+                  value: "98%",
+                  icon: "⭐",
+                  color: "from-orange-500 to-red-500",
+                },
               ].map((stat, index) => (
                 <Card
                   key={index}
@@ -622,23 +759,49 @@ export default function Portfolio() {
 
             {/* Technology Stack Visualization */}
             <div className="mb-16">
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">Technology Stack Distribution</h3>
+              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
+                Technology Stack Distribution
+              </h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Frontend Technologies */}
                 <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500">
                   <CardContent className="p-6">
-                    <h4 className={`text-xl font-bold mb-6 text-${theme.highlight}`}>Frontend Technologies</h4>
+                    <h4
+                      className={`text-xl font-bold mb-6 text-${theme.highlight}`}
+                    >
+                      Frontend Technologies
+                    </h4>
                     <div className="space-y-4">
                       {[
-                        { name: "React/Next.js", percentage: 90, color: "from-blue-500 to-cyan-500" },
-                        { name: "TypeScript", percentage: 85, color: "from-blue-600 to-blue-400" },
-                        { name: "Vue.js", percentage: 75, color: "from-green-500 to-emerald-500" },
-                        { name: "Angular", percentage: 65, color: "from-red-500 to-pink-500" },
+                        {
+                          name: "React/Next.js",
+                          percentage: 90,
+                          color: "from-blue-500 to-cyan-500",
+                        },
+                        {
+                          name: "TypeScript",
+                          percentage: 85,
+                          color: "from-blue-600 to-blue-400",
+                        },
+                        {
+                          name: "Vue.js",
+                          percentage: 75,
+                          color: "from-green-500 to-emerald-500",
+                        },
+                        {
+                          name: "Angular",
+                          percentage: 65,
+                          color: "from-red-500 to-pink-500",
+                        },
                       ].map((tech, index) => (
                         <div key={index} className="group">
                           <div className="flex justify-between mb-2">
-                            <span className="text-white font-medium">{tech.name}</span>
-                            <span className="text-gray-400">{tech.percentage}%</span>
+                            <span className="text-white font-medium">
+                              {tech.name}
+                            </span>
+                            <span className="text-gray-400">
+                              {tech.percentage}%
+                            </span>
                           </div>
                           <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
                             <div
@@ -655,18 +818,42 @@ export default function Portfolio() {
                 {/* Backend Technologies */}
                 <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500">
                   <CardContent className="p-6">
-                    <h4 className={`text-xl font-bold mb-6 text-${theme.highlight}`}>Backend Technologies</h4>
+                    <h4
+                      className={`text-xl font-bold mb-6 text-${theme.highlight}`}
+                    >
+                      Backend Technologies
+                    </h4>
                     <div className="space-y-4">
                       {[
-                        { name: "Node.js", percentage: 95, color: "from-green-600 to-green-400" },
-                        { name: "Python", percentage: 88, color: "from-yellow-500 to-green-500" },
-                        { name: "Java", percentage: 80, color: "from-red-600 to-orange-600" },
-                        { name: "Go", percentage: 70, color: "from-cyan-500 to-blue-500" },
+                        {
+                          name: "Node.js",
+                          percentage: 95,
+                          color: "from-green-600 to-green-400",
+                        },
+                        {
+                          name: "Python",
+                          percentage: 88,
+                          color: "from-yellow-500 to-green-500",
+                        },
+                        {
+                          name: "Java",
+                          percentage: 80,
+                          color: "from-red-600 to-orange-600",
+                        },
+                        {
+                          name: "Go",
+                          percentage: 70,
+                          color: "from-cyan-500 to-blue-500",
+                        },
                       ].map((tech, index) => (
                         <div key={index} className="group">
                           <div className="flex justify-between mb-2">
-                            <span className="text-white font-medium">{tech.name}</span>
-                            <span className="text-gray-400">{tech.percentage}%</span>
+                            <span className="text-white font-medium">
+                              {tech.name}
+                            </span>
+                            <span className="text-gray-400">
+                              {tech.percentage}%
+                            </span>
                           </div>
                           <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
                             <div
@@ -684,7 +871,9 @@ export default function Portfolio() {
 
             {/* Project Timeline Visualization */}
             <div className="mb-16">
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">Project Timeline</h3>
+              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
+                Project Timeline
+              </h3>
               <div className="relative">
                 {/* Timeline Line */}
                 <div
@@ -696,7 +885,8 @@ export default function Portfolio() {
                     {
                       year: "2024",
                       title: "AI Analytics Platform",
-                      description: "Machine learning dashboard with real-time insights",
+                      description:
+                        "Machine learning dashboard with real-time insights",
                       position: "left",
                       color: "from-purple-500 to-pink-500",
                     },
@@ -710,7 +900,8 @@ export default function Portfolio() {
                     {
                       year: "2022",
                       title: "Blockchain Voting App",
-                      description: "Secure voting platform with smart contracts",
+                      description:
+                        "Secure voting platform with smart contracts",
                       position: "left",
                       color: "from-green-500 to-emerald-500",
                     },
@@ -724,22 +915,36 @@ export default function Portfolio() {
                   ].map((project, index) => (
                     <div
                       key={index}
-                      className={`flex items-center ${project.position === "right" ? "flex-row-reverse" : ""}`}
+                      className={`flex items-center ${
+                        project.position === "right" ? "flex-row-reverse" : ""
+                      }`}
                     >
-                      <div className={`w-1/2 ${project.position === "right" ? "pl-8" : "pr-8"}`}>
+                      <div
+                        className={`w-1/2 ${
+                          project.position === "right" ? "pl-8" : "pr-8"
+                        }`}
+                      >
                         <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 group">
-                          <div className={`h-1 bg-gradient-to-r ${project.color}`} />
+                          <div
+                            className={`h-1 bg-gradient-to-r ${project.color}`}
+                          />
                           <CardContent className="p-6">
                             <div className="flex items-center mb-3">
                               <div
                                 className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.color} mr-3 group-hover:animate-pulse`}
                               ></div>
-                              <span className={`text-lg font-bold text-${theme.highlight}`}>{project.year}</span>
+                              <span
+                                className={`text-lg font-bold text-${theme.highlight}`}
+                              >
+                                {project.year}
+                              </span>
                             </div>
                             <h4 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
                               {project.title}
                             </h4>
-                            <p className="text-gray-400">{project.description}</p>
+                            <p className="text-gray-400">
+                              {project.description}
+                            </p>
                           </CardContent>
                         </Card>
                       </div>
@@ -760,7 +965,9 @@ export default function Portfolio() {
 
             {/* Skills Radar Chart Visualization */}
             <div>
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">Skills Assessment</h3>
+              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
+                Skills Assessment
+              </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {[
                   {
@@ -808,8 +1015,12 @@ export default function Portfolio() {
                         {category.skills.map((skill, skillIndex) => (
                           <div key={skillIndex} className="group/skill">
                             <div className="flex justify-between mb-2">
-                              <span className="text-white font-medium text-sm">{skill.name}</span>
-                              <span className="text-gray-400 text-sm">{skill.level}%</span>
+                              <span className="text-white font-medium text-sm">
+                                {skill.name}
+                              </span>
+                              <span className="text-gray-400 text-sm">
+                                {skill.level}%
+                              </span>
                             </div>
                             <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                               <div
@@ -831,7 +1042,9 @@ export default function Portfolio() {
         {/* Contact Section */}
         <section id="contact" className="py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className={`text-4xl font-bold mb-8 bg-gradient-to-r ${theme.accent} bg-clip-text text-transparent`}>
+            <h2
+              className={`text-4xl font-bold mb-8 bg-gradient-to-r ${theme.accent} bg-clip-text text-transparent`}
+            >
               {"Let's Build Something Amazing"}
             </h2>
             <p className="text-xl text-gray-400 mb-12 leading-relaxed">
@@ -841,7 +1054,14 @@ export default function Portfolio() {
 
             <Button
               size="lg"
-              className={`bg-gradient-to-r ${theme.primary} hover:${theme.primary.replace("from", "from-600").replace("to", "to-700")} text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/25`}
+              className={`bg-gradient-to-r ${
+                theme.primary
+              } hover:${theme.primary
+                .replace("from", "from-600")
+                .replace(
+                  "to",
+                  "to-700"
+                )} text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/25`}
             >
               Get In Touch
             </Button>
@@ -852,20 +1072,36 @@ export default function Portfolio() {
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="mb-4 md:mb-0">
-                <h3 className={`text-2xl font-bold bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}>
+                <h3
+                  className={`text-2xl font-bold bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
+                >
                   Jimmy Zghendy
                 </h3>
-                <p className="text-gray-400 text-sm">Computer Science Engineer</p>
+                <p className="text-gray-400 text-sm">
+                  Computer Science Engineer
+                </p>
               </div>
 
               <div className="flex items-center space-x-6 mb-4 md:mb-0">
-                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white transition-colors">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <Github className="w-4 h-4" />
                 </Button>
-                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white transition-colors">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <Linkedin className="w-4 h-4" />
                 </Button>
-                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white transition-colors">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <Mail className="w-4 h-4" />
                 </Button>
               </div>
@@ -885,8 +1121,12 @@ export default function Portfolio() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-white/5 text-center">
-              <p className="text-gray-500 text-sm">© 2025 Jimmy Zghendy. All rights reserved.</p>
-              <div className={`mt-2 h-0.5 bg-gradient-to-r ${theme.primary} mx-auto w-24 opacity-50`}></div>
+              <p className="text-gray-500 text-sm">
+                © 2025 Jimmy Zghendy. All rights reserved.
+              </p>
+              <div
+                className={`mt-2 h-0.5 bg-gradient-to-r ${theme.primary} mx-auto w-24 opacity-50`}
+              ></div>
             </div>
           </div>
         </footer>
@@ -895,14 +1135,19 @@ export default function Portfolio() {
       {/* Animated CSS */}
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
         }
-        
+
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
       `}</style>
     </div>
-  )
+  );
 }
