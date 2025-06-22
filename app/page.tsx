@@ -300,8 +300,7 @@ export default function Portfolio() {
                 systems, and creating impactful digital experiences.
               </p>
             </div>
-
-            <div className="flex justify-center space-x-6 mb-12">
+            <div className="flex flex-wrap justify-center gap-4 mb-12 max-w-md mx-auto">
               {[
                 { Icon: Github, url: "https://github.com/JimmyZghendy" },
                 {
@@ -309,7 +308,7 @@ export default function Portfolio() {
                   url: "https://www.linkedin.com/in/jimmy-zghendy/",
                 },
                 { Icon: Mail, url: "mailto:jimmyelzghendy990@gmail.com" },
-                { Icon: Phone, url: "tel:+96171755803" }, // Replace with your actual phone number
+                { Icon: Phone, url: "tel:+96171755803" },
               ].map(({ Icon, url }, index) => (
                 <Button
                   key={index}
