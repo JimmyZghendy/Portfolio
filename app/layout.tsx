@@ -19,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="icon" href="/JimmyPhoto.jpg" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
