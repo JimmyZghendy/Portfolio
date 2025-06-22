@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ChevronDown, Github, Linkedin, Mail, Code, Database, Cpu, Zap, Palette, Menu, X } from "lucide-react"
+import { ChevronDown, Github, Linkedin, Mail, Code, Database, Cpu, Zap, Palette, Menu, X, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -251,23 +251,24 @@ export default function Portfolio() {
               </p>
             </div>
 
-            <div className="flex justify-center space-x-6 mb-12">
-            {[
-        { Icon: Github, url: "https://github.com/jimmyzghendy" },
+        <div className="flex justify-center space-x-6 mb-12">
+       {[
+        { Icon: Github, url: "https://github.com/JimmyZghendy" },
         { Icon: Linkedin, url: "https://www.linkedin.com/in/jimmy-zghendy/" },
         { Icon: Mail, url: "mailto:jimmyelzghendy990@gmail.com" },
-              ].map(({ Icon, url }, index) => (
-        <Button
-        key={index}
-        variant="outline"
-        size="lg"
-        className="bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
-        onClick={() => window.open(url, '_blank')}
-        >
+        { Icon: Phone, url: "tel:+96171755803" } // Replace with your actual phone number
+       ].map(({ Icon, url }, index) => (
+    <Button
+      key={index}
+      variant="outline"
+      size="lg"
+      className="bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+      onClick={() => window.open(url, '_blank')}
+    >
       <Icon className="w-5 h-5" />
     </Button>
   ))}
-</div>
+  </div>
 
             <ChevronDown className={`w-8 h-8 mx-auto animate-bounce text-${theme.highlight}`} />
           </div>
