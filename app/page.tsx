@@ -300,7 +300,7 @@ export default function Portfolio() {
                 systems, and creating impactful digital experiences.
               </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 mb-12 max-w-md mx-auto">
+            <div className="flex flex-wrap justify-center px-1 gap-4 mb-12 max-w-md mx-auto">
               {[
                 { Icon: Github, url: "https://github.com/JimmyZghendy" },
                 {
