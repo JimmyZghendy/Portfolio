@@ -381,11 +381,11 @@ export default function Portfolio() {
                   gradient: "from-blue-500 to-cyan-500",
                 },
                 {
-                  title: "Full Stack Developer",
-                  company: "InnovateLab",
-                  period: "2020 - 2022",
+                  title: "Accounting Associate",
+                  company: "Municipality of Jounieh",
+                  period: "2024 - Present",
                   description:
-                    "Developed and maintained multiple web applications using modern frameworks. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+                    "Soon ... Developed and maintained multiple web applications using modern frameworks. Collaborated with cross-functional teams to deliver high-quality software solutions.",
                   technologies: ["Vue.js", "Express.js", "MongoDB", "Redis"],
                   gradient: "from-purple-500 to-pink-500",
                 },
