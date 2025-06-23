@@ -492,9 +492,9 @@ export default function Portfolio() {
                       {edu.school}
                     </p>
                     <p className="text-gray-400 mb-2">{edu.period}</p>
-                    <p className={`text-${theme.highlight} font-medium mb-2`}>
+                    {/*<p className={`text-${theme.highlight} font-medium mb-2`}>
                       GPA: {edu.gpa}
-                    </p>
+                    </p>*/}
                     <p className="text-gray-300 mb-4">Focus: {edu.focus}</p>
                     <div className="space-y-1">
                       <p className="text-sm text-gray-400 font-medium">
@@ -528,14 +528,14 @@ export default function Portfolio() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  language: "English",
+                  language: "Arabic",
                   level: "Native",
                   proficiency: 100,
                   flag: "🇺🇸",
                   gradient: "from-blue-500 to-red-500",
                 },
                 {
-                  language: "Spanish",
+                  language: "English",
                   level: "Fluent",
                   proficiency: 90,
                   flag: "🇪🇸",
@@ -547,27 +547,6 @@ export default function Portfolio() {
                   proficiency: 70,
                   flag: "🇫🇷",
                   gradient: "from-blue-600 to-red-600",
-                },
-                {
-                  language: "German",
-                  level: "Basic",
-                  proficiency: 45,
-                  flag: "🇩🇪",
-                  gradient: "from-black to-red-600",
-                },
-                {
-                  language: "Japanese",
-                  level: "Basic",
-                  proficiency: 40,
-                  flag: "🇯🇵",
-                  gradient: "from-red-600 to-white",
-                },
-                {
-                  language: "Mandarin",
-                  level: "Beginner",
-                  proficiency: 25,
-                  flag: "🇨🇳",
-                  gradient: "from-red-600 to-yellow-500",
                 },
               ].map((lang, index) => (
                 <Card
