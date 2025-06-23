@@ -371,12 +371,13 @@ export default function Portfolio() {
             <div className="space-y-8">
               {[
                 {
-                  title: "Senior Software Engineer",
-                  company: "TechCorp Solutions",
-                  period: "2022 - Present",
+                  title: "Instructor Robotics",
+                  company: "Ombael ",
+                  period: "2023 - Present",
                   description:
-                    "Led development of scalable microservices architecture serving 1M+ users. Implemented AI-driven analytics platform resulting in 40% performance improvement.",
-                  technologies: ["React", "Node.js", "AWS", "Docker", "Python"],
+                    "Robotics instructor at Ombael colonie Jbeil Lebanon. Using LEGO wedo2.0 to help kids aged 5 years and above gain new skills and experience robotics in a fun way. I give classes with up to 10 students, managing to give each one of them the help that they need to insure that each student finishes their project on time and understands how the programing works. I'm also a coding instructor, using code.org to deliver the basics of coding to kids in the best way that suits their capabilities. Helping them understand coding functions (if condition, if else, loop...) in a fun and easy way.",
+                  technologies: ["Wedo2.0", "Lego", "Coding", "Programming"],
+                  // ["React", "Node.js", "AWS", "Docker", "Python"],
                   gradient: "from-blue-500 to-cyan-500",
                 },
                 {
@@ -452,10 +453,10 @@ export default function Portfolio() {
               {[
                 {
                   degree: "Master of Science in Computer Science",
-                  school: "Stanford University",
-                  period: "2018 - 2020",
-                  gpa: "3.9/4.0",
-                  focus: "Artificial Intelligence & Machine Learning",
+                  school: "Lebanese University",
+                  period: "2024 - 2025",
+                  focus:
+                    "Cybersecurity & Artificial Intelligence & Machine Learning",
                   achievements: [
                     "Dean's List",
                     "Research Assistant",
@@ -464,10 +465,9 @@ export default function Portfolio() {
                   gradient: "from-violet-500 to-purple-600",
                 },
                 {
-                  degree: "Bachelor of Science in Computer Engineering",
-                  school: "UC Berkeley",
-                  period: "2014 - 2018",
-                  gpa: "3.8/4.0",
+                  degree: "Bachelor of Science in Applied Mathematics",
+                  school: "Lebanese University",
+                  period: "2020 - 2024",
                   focus: "Software Engineering & Systems",
                   achievements: [
                     "Magna Cum Laude",
