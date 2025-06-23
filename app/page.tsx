@@ -613,12 +613,12 @@ export default function Portfolio() {
                   },
                   { name: "Go", level: 75, color: "from-cyan-500 to-blue-500" },
                   {
-                    name: "Rust",
+                    name: "Matlab",
                     level: 65,
                     color: "from-orange-600 to-red-600",
                   },
                   {
-                    name: "Swift",
+                    name: "HTML5",
                     level: 60,
                     color: "from-orange-500 to-red-500",
                   },
