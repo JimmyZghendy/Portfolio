@@ -611,7 +611,11 @@ export default function Portfolio() {
                     level: 80,
                     color: "from-purple-600 to-blue-600",
                   },
-                  { name: "Go", level: 75, color: "from-cyan-500 to-blue-500" },
+                  {
+                    name: "PowerShell",
+                    level: 75,
+                    color: "from-cyan-500 to-blue-500",
+                  },
                   {
                     name: "Matlab",
                     level: 65,
