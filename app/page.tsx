@@ -823,7 +823,7 @@ export default function Portfolio() {
                           color: "from-red-600 to-orange-600",
                         },
                         {
-                          name: "Go",
+                          name: "PHP",
                           percentage: 70,
                           color: "from-cyan-500 to-blue-500",
                         },
