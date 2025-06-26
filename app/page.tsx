@@ -865,7 +865,7 @@ export default function Portfolio() {
                 <div className="space-y-12">
                   {[
                     {
-                      year: "2024",
+                      year: "2025",
                       title: "AI Analytics Platform",
                       description:
                         "Machine learning dashboard with real-time insights",
