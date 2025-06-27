@@ -873,7 +873,7 @@ export default function Portfolio() {
                       color: "from-purple-500 to-pink-500",
                     },
                     {
-                      year: "2023",
+                      year: "2024",
                       title: "E-commerce Microservices",
                       description: "Scalable distributed system architecture",
                       position: "right",
