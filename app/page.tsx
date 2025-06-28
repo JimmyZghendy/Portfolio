@@ -25,8 +25,8 @@ export default function Portfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const [currentTheme, setCurrentTheme] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const colorThemes = [
     {
@@ -72,6 +72,124 @@ export default function Portfolio() {
   ];
 
   const theme = colorThemes[currentTheme];
+
+  const programmingLanguages = [
+    {
+      name: "JavaScript",
+      icon: "⚛️",
+      color: "from-yellow-500 to-yellow-700",
+      level: 90,
+      category: "Frontend",
+    },
+    {
+      name: "TypeScript",
+      icon: "🟦",
+      color: "from-blue-500 to-blue-700",
+      level: 85,
+      category: "Frontend",
+    },
+    {
+      name: "React",
+      icon: "⚛️",
+      color: "from-blue-300 to-blue-500",
+      level: 90,
+      category: "Frontend",
+    },
+    {
+      name: "Next.js",
+      icon: "🚀",
+      color: "from-gray-700 to-gray-900",
+      level: 80,
+      category: "Frontend",
+    },
+    {
+      name: "Node.js",
+      icon: "🟢",
+      color: "from-green-500 to-green-700",
+      level: 75,
+      category: "Backend",
+    },
+    {
+      name: "Express.js",
+      icon: "⚙️",
+      color: "from-gray-400 to-gray-600",
+      level: 70,
+      category: "Backend",
+    },
+    {
+      name: "Python",
+      icon: "🐍",
+      color: "from-blue-400 to-blue-600",
+      level: 80,
+      category: "Scripting",
+    },
+    {
+      name: "Go",
+      icon: "🐹",
+      color: "from-cyan-500 to-cyan-700",
+      level: 60,
+      category: "Systems",
+    },
+    {
+      name: "SQL",
+      icon: "📊",
+      color: "from-orange-400 to-orange-600",
+      level: 85,
+      category: "Database",
+    },
+    {
+      name: "C++",
+      icon: "🧰",
+      color: "from-red-500 to-red-700",
+      level: 50,
+      category: "Systems",
+    },
+    {
+      name: "Java",
+      icon: "☕",
+      color: "from-red-600 to-red-800",
+      level: 65,
+      category: "Backend",
+    },
+    {
+      name: "Bash",
+      icon: "💻",
+      color: "from-gray-600 to-gray-800",
+      level: 70,
+      category: "Scripting",
+    },
+    {
+      name: "R",
+      icon: "📈",
+      color: "from-blue-600 to-blue-800",
+      level: 75,
+      category: "Scientific",
+    },
+    {
+      name: "MATLAB",
+      icon: "🧮",
+      color: "from-red-400 to-red-600",
+      level: 60,
+      category: "Scientific",
+    },
+  ];
+
+  const categories = [
+    "All",
+    "Frontend",
+    "Backend",
+    "Systems",
+    "Database",
+    "Scripting",
+    "Scientific",
+  ];
+
+  const filteredLanguages =
+    selectedCategory === "All"
+      ? programmingLanguages
+      : programmingLanguages.filter(
+          (lang) => lang.category === selectedCategory
+        );
 
   const cycleTheme = () => {
     setCurrentTheme((prev) => (prev + 1) % colorThemes.length);
@@ -601,63 +719,109 @@ export default function Portfolio() {
 
             {/* Programming Languages Bonus Section */}
             <div className="mt-16">
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
-                Programming Languages
+              <h3 className="text-3xl font-bold text-center mb-4 text-gray-100">
+                Programming Languages & Technologies
               </h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                {[
-                  {
-                    name: "JavaScript",
-                    level: 95,
-                    color: "from-yellow-400 to-orange-500",
-                  },
-                  {
-                    name: "Python",
-                    level: 90,
-                    color: "from-blue-500 to-green-500",
-                  },
-                  {
-                    name: "TypeScript",
-                    level: 88,
-                    color: "from-blue-600 to-blue-400",
-                  },
-                  {
-                    name: "Java",
-                    level: 85,
-                    color: "from-red-600 to-orange-600",
-                  },
-                  {
-                    name: "C++",
-                    level: 80,
-                    color: "from-purple-600 to-blue-600",
-                  },
-                  {
-                    name: "PowerShell",
-                    level: 75,
-                    color: "from-cyan-500 to-blue-500",
-                  },
-                  {
-                    name: "Matlab",
-                    level: 65,
-                    color: "from-orange-600 to-red-600",
-                  },
-                  {
-                    name: "HTML5",
-                    level: 60,
-                    color: "from-orange-500 to-red-500",
-                  },
-                ].map((prog, index) => (
+              <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
+                A comprehensive overview of my technical skills and proficiency
+                levels across various programming languages and technologies.
+              </p>
+
+              {/* Category Filter */}
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      selectedCategory === category
+                        ? "bg-blue-600 text-white shadow-lg"
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+
+              {/* Enhanced Languages Display */}
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
+                {filteredLanguages.map((prog, index) => (
                   <div key={index} className="group relative">
                     <div
-                      className={`px-4 py-2 bg-gradient-to-r ${prog.color} rounded-full text-white font-semibold text-sm hover:scale-110 transition-all duration-300 cursor-pointer`}
+                      className={`px-6 py-3 bg-gradient-to-r ${prog.color} rounded-full text-white font-semibold text-sm hover:scale-110 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex items-center gap-2`}
                     >
+                      <span className="text-lg">{prog.icon}</span>
                       {prog.name}
                     </div>
-                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {prog.level}%
+
+                    {/* Enhanced Tooltip */}
+                    <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20">
+                      <div className="font-semibold">{prog.name}</div>
+                      <div className="text-gray-300">
+                        Proficiency: {prog.level}%
+                      </div>
+                      <div className="text-blue-300 text-xs">
+                        {prog.category}
+                      </div>
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black/90"></div>
+                    </div>
+
+                    {/* Category Badge */}
+                    <div className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-gray-600">
+                      {prog.category}
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Stats Summary */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
+                  <div className="text-2xl font-bold text-blue-400">
+                    {filteredLanguages.length}
+                  </div>
+                  <div className="text-sm text-gray-400">
+                    {selectedCategory === "All"
+                      ? "Total Languages"
+                      : `${selectedCategory} Skills`}
+                  </div>
+                </div>
+                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
+                  <div className="text-2xl font-bold text-green-400">
+                    {Math.round(
+                      filteredLanguages.reduce(
+                        (acc, lang) => acc + lang.level,
+                        0
+                      ) / filteredLanguages.length
+                    )}
+                    %
+                  </div>
+                  <div className="text-sm text-gray-400">
+                    Average Proficiency
+                  </div>
+                </div>
+                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
+                  <div className="text-2xl font-bold text-purple-400">
+                    {
+                      filteredLanguages.filter((lang) => lang.level >= 90)
+                        .length
+                    }
+                  </div>
+                  <div className="text-sm text-gray-400">Expert Level</div>
+                </div>
+                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
+                  <div className="text-2xl font-bold text-orange-400">
+                    {selectedCategory === "All"
+                      ? new Set(filteredLanguages.map((lang) => lang.category))
+                          .size
+                      : filteredLanguages.filter((lang) => lang.level >= 80)
+                          .length}
+                  </div>
+                  <div className="text-sm text-gray-400">
+                    {selectedCategory === "All" ? "Categories" : "Advanced+"}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
