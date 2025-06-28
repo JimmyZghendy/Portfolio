@@ -380,6 +380,15 @@ export default function Portfolio() {
             <div className="space-y-8">
               {[
                 {
+                  title: "Accounting Associate",
+                  company: "Municipality of Jounieh",
+                  period: "2024 - Present",
+                  description:
+                    "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently. Worked with the Windows Subsystem for Linux (WSL) to enhance coding and system administration skills.",
+                  /*technologies: ["Vue.js", "Express.js", "MongoDB", "Redis"],*/
+                  gradient: "from-blue-500 to-cyan-500",
+                },
+                {
                   title: "Instructor Robotics",
                   company: "Ombael ",
                   period: "2023 - Present",
@@ -387,24 +396,15 @@ export default function Portfolio() {
                     "Robotics instructor at Ombael colonie Jbeil Lebanon. Using LEGO wedo2.0 to help kids aged 5 years and above gain new skills and experience robotics in a fun way. I give classes with up to 10 students, managing to give each one of them the help that they need to insure that each student finishes their project on time and understands how the programing works. I'm also a coding instructor, using code.org to deliver the basics of coding to kids in the best way that suits their capabilities. Helping them understand coding functions (if condition, if else, loop...) in a fun and easy way.",
                   technologies: ["Wedo2.0", "Lego", "Coding", "Programming"],
                   // ["React", "Node.js", "AWS", "Docker", "Python"],
-                  gradient: "from-blue-500 to-cyan-500",
-                },
-                {
-                  title: "Accounting Associate",
-                  company: "Municipality of Jounieh",
-                  period: "2024 - Present",
-                  description:
-                    "Soon ... Developed and maintained multiple web applications using modern frameworks. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-                  technologies: ["Vue.js", "Express.js", "MongoDB", "Redis"],
                   gradient: "from-purple-500 to-pink-500",
                 },
                 {
-                  title: "Software Development Intern",
-                  company: "StartupXYZ",
-                  period: "2019 - 2020",
+                  title: "Research Intern",
+                  company: "Potech",
+                  period: "March 2024 - May 2024",
                   description:
-                    "Built responsive web interfaces and contributed to backend API development. Gained experience in agile development methodologies and version control.",
-                  technologies: ["JavaScript", "React", "Firebase", "Git"],
+                    "Gained valuable experience in the field of cybersecurity, working on various projects and challenges. Developed strong proficiency in Kali Linux, particularly for security testing. Developed a phishing simulation tool using PHP and phpMyAdmin, deployed 000webhost, to test security vulnerabilities.",
+                  technologies: ["phpMyAdmin", "JavaScript", "Bash", "Git"],
                   gradient: "from-green-500 to-emerald-500",
                 },
               ].map((exp, index) => (
@@ -432,16 +432,18 @@ export default function Portfolio() {
                     <p className="text-gray-300 mb-4 leading-relaxed">
                       {exp.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className={`px-3 py-1 bg-white/10 rounded-full text-sm text-${theme.highlight} border border-${theme.border} hover:bg-${theme.highlight}/10 transition-colors`}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    {exp.technologies && (
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className={`px-3 py-1 bg-white/10 rounded-full text-sm text-${theme.highlight} border border-${theme.border} hover:bg-${theme.highlight}/10 transition-colors`}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               ))}
