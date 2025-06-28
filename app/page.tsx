@@ -469,9 +469,14 @@ export default function Portfolio() {
                   focus:
                     "Cybersecurity & Artificial Intelligence & Machine Learning",
                   achievements: [
-                    "Dean's List",
-                    "Research Assistant",
-                    "Published 3 papers",
+                    "Network Security",
+                    "Cryptography",
+                    "DevOps",
+                    "Artificial Intelligence",
+                    "Machine Learning",
+                    "Compiler",
+                    "Django",
+                    "MongoDB",
                   ],
                   gradient: "from-violet-500 to-purple-600",
                 },
@@ -481,9 +486,13 @@ export default function Portfolio() {
                   period: "2020 - 2024",
                   focus: "Software Engineering & Systems",
                   achievements: [
-                    "Magna Cum Laude",
-                    "ACM President",
-                    "Hackathon Winner",
+                    "Networking",
+                    "Project Management",
+                    "Data Structures",
+                    "Data Analysis",
+                    "Object-Oriented Programming",
+                    "Web Development",
+                    "Software Engineering",
                   ],
                   gradient: "from-blue-500 to-indigo-600",
                 },
@@ -509,7 +518,7 @@ export default function Portfolio() {
                     <p className="text-gray-300 mb-4">Focus: {edu.focus}</p>
                     <div className="space-y-1">
                       <p className="text-sm text-gray-400 font-medium">
-                        Achievements:
+                        {/* Achievements: */}
                       </p>
                       {edu.achievements.map((achievement, achIndex) => (
                         <span
