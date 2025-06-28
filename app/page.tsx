@@ -287,6 +287,11 @@ export default function Portfolio() {
                 </div>
               </div>
 
+              {/* Added "Let's build something together" */}
+              <h2 className="text-xl md:text-2xl text-gray-400 mb-2 animate-fade-in uppercase tracking-wider">
+                LET'S BUILD SOMETHING TOGETHER
+              </h2>
+
               <h1
                 className={`text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent animate-pulse`}
               >
@@ -298,9 +303,10 @@ export default function Portfolio() {
                 </span>
               </div>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                Crafting innovative solutions through code, algorithms, and
-                cutting-edge technology. Passionate about AI, distributed
-                systems, and creating impactful digital experiences.
+                Passionate about cybersecurity, artificial intelligence, and
+                software development. Currently pursuing M1 in Computer Science,
+                exploring the intersection of security, AI algorithms, and
+                innovative coding solutions to build a safer digital future.
               </p>
             </div>
             <div className="flex flex-wrap justify-center px-1 gap-4 mb-12 max-w-md mx-auto">
