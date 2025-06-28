@@ -18,6 +18,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
+// Simple JZ component
+const JZ = () => <span>&lt;JZ/&gt;</span>;
+
 export default function Portfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
@@ -167,7 +170,7 @@ export default function Portfolio() {
             <div
               className={`text-xl font-bold bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
             >
-              JZ
+              <JZ />
             </div>
 
             {/* Desktop Navigation */}
@@ -866,9 +869,9 @@ export default function Portfolio() {
                   {[
                     {
                       year: "2025",
-                      title: "AI Analytics Platform",
+                      title: "Bibline",
                       description:
-                        "Machine learning dashboard with real-time insights",
+                        "Reading App to all platform using react native",
                       position: "left",
                       color: "from-purple-500 to-pink-500",
                     },
