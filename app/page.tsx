@@ -382,7 +382,7 @@ export default function Portfolio() {
                 {
                   title: "Accounting Associate",
                   company: "Municipality of Jounieh",
-                  period: "2024 - Present",
+                  period: "November 2024 - Present",
                   description:
                     "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently. Worked with the Windows Subsystem for Linux (WSL) to enhance coding and system administration skills.",
                   /*technologies: ["Vue.js", "Express.js", "MongoDB", "Redis"],*/
