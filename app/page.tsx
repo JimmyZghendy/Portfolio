@@ -719,9 +719,11 @@ export default function Portfolio() {
 
             {/* Programming Languages Bonus Section */}
             <div className="mt-16">
-              <h3 className="text-3xl font-bold text-center mb-4 text-gray-100">
+              <h2
+                className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
+              >
                 Programming Languages & Technologies
-              </h3>
+              </h2>
               <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
                 A comprehensive overview of my technical skills and proficiency
                 levels across various programming languages and technologies.
@@ -733,13 +735,31 @@ export default function Portfolio() {
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${
                       selectedCategory === category
-                        ? "bg-blue-600 text-white shadow-lg"
-                        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                        ? "bg-gray-800 border-2"
+                        : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-600"
                     }`}
+                    style={
+                      selectedCategory === category
+                        ? {
+                            borderImage: `linear-gradient(to right, ${theme.primary
+                              .replace("from-", "")
+                              .replace("to-", "")
+                              .replace(" ", ", ")}) 1`,
+                          }
+                        : {}
+                    }
                   >
-                    {category}
+                    <span
+                      className={
+                        selectedCategory === category
+                          ? `bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent font-bold`
+                          : ""
+                      }
+                    >
+                      {category}
+                    </span>
                   </button>
                 ))}
               </div>
