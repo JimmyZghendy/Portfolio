@@ -551,14 +551,14 @@ export default function Portfolio() {
                   language: "Arabic",
                   level: "Native",
                   proficiency: 100,
-                  flag: "🇺🇸",
+                  flag: "🇱🇧",
                   gradient: "from-blue-500 to-red-500",
                 },
                 {
                   language: "English",
                   level: "Fluent",
                   proficiency: 90,
-                  flag: "🇪🇸",
+                  flag: "🇺🇸",
                   gradient: "from-yellow-500 to-red-600",
                 },
                 {
