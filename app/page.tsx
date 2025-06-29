@@ -433,8 +433,7 @@ export default function Portfolio() {
                 { name: "Experience", href: "#experience" },
                 { name: "Education", href: "#education" },
                 { name: "Languages", href: "#languages" },
-                { name: "Projects", href: "#projects" },
-                { name: "Visualization", href: "#visualization" },
+                { name: "Projects", href: "#visualization" },
                 { name: "Contact", href: "#contact" },
               ].map((item) => (
                 <a
@@ -490,8 +489,7 @@ export default function Portfolio() {
                   { name: "Experience", href: "#experience" },
                   { name: "Education", href: "#education" },
                   { name: "Languages", href: "#languages" },
-                  { name: "Projects", href: "#projects" },
-                  { name: "Visualization", href: "#visualization" },
+                  { name: "Projects", href: "#visualization" },
                   { name: "Contact", href: "#contact" },
                 ].map((item) => (
                   <a
@@ -588,7 +586,6 @@ export default function Portfolio() {
             />
           </div>
         </section>
-
         {/* Skills Section */}
         <section id="skills" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
@@ -619,7 +616,6 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-
         {/* Experience Section */}
         <section id="experience" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
@@ -702,7 +698,6 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-
         {/* Education Section */}
         <section id="education" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
@@ -787,7 +782,6 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-
         {/* Language Skills Section */}
         <section id="languages" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
@@ -981,7 +975,8 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Projects Section */}
+        {/* 
+        // Projects Section 
         <section id="projects" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <h2
@@ -1019,7 +1014,7 @@ export default function Portfolio() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Visualization Section */}
         <section id="visualization" className="py-20 px-6">
@@ -1077,13 +1072,14 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Technology Stack Visualization */}
+            {/* 
+            // Technology Stack Visualization 
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
                 Technology Stack Distribution
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Frontend Technologies */}
+                {/* Frontend Technologies 
                 <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500">
                   <CardContent className="p-6">
                     <h4
@@ -1135,7 +1131,8 @@ export default function Portfolio() {
                   </CardContent>
                 </Card>
 
-                {/* Backend Technologies */}
+                
+                // Backend Technologies
                 <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500">
                   <CardContent className="p-6">
                     <h4
@@ -1188,7 +1185,7 @@ export default function Portfolio() {
                 </Card>
               </div>
             </div>
-
+                      */}
             {/* Project Timeline Visualization */}
             <div className="mb-16">
               <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
@@ -1358,7 +1355,6 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-
         {/* Contact Section */}
         <section id="contact" className="py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
