@@ -74,6 +74,7 @@ export default function Portfolio() {
   const theme = colorThemes[currentTheme];
 
   const programmingLanguages = [
+    // Programming Languages
     {
       name: "JavaScript",
       icon: "⚛️",
@@ -89,6 +90,101 @@ export default function Portfolio() {
       category: "Frontend",
     },
     {
+      name: "Python",
+      icon: "🐍",
+      color: "from-blue-400 to-blue-600",
+      level: 80,
+      category: "Scripting",
+    },
+    {
+      name: "Java",
+      icon: "☕",
+      color: "from-red-600 to-red-800",
+      level: 65,
+      category: "Backend",
+    },
+    {
+      name: "C++",
+      icon: "🧰",
+      color: "from-red-500 to-red-700",
+      level: 50,
+      category: "Systems",
+    },
+    {
+      name: "C",
+      icon: "🔧",
+      color: "from-blue-600 to-blue-800",
+      level: 55,
+      category: "Systems",
+    },
+    {
+      name: "PHP",
+      icon: "🐘",
+      color: "from-purple-500 to-purple-700",
+      level: 60,
+      category: "Backend",
+    },
+    {
+      name: "HTML5",
+      icon: "🌐",
+      color: "from-orange-500 to-orange-700",
+      level: 95,
+      category: "Frontend",
+    },
+    {
+      name: "CSS3",
+      icon: "🎨",
+      color: "from-blue-400 to-blue-600",
+      level: 90,
+      category: "Frontend",
+    },
+    {
+      name: "Bash",
+      icon: "💻",
+      color: "from-gray-600 to-gray-800",
+      level: 70,
+      category: "Scripting",
+    },
+    {
+      name: "MATLAB",
+      icon: "🧮",
+      color: "from-red-400 to-red-600",
+      level: 60,
+      category: "Scientific",
+    },
+    {
+      name: "SQL",
+      icon: "📊",
+      color: "from-orange-400 to-orange-600",
+      level: 85,
+      category: "Database",
+    },
+
+    // Databases
+    {
+      name: "MySQL",
+      icon: "🐬",
+      color: "from-blue-500 to-blue-700",
+      level: 80,
+      category: "Database",
+    },
+    {
+      name: "PostgreSQL",
+      icon: "🐘",
+      color: "from-blue-600 to-blue-800",
+      level: 75,
+      category: "Database",
+    },
+    {
+      name: "MongoDB",
+      icon: "🍃",
+      color: "from-green-500 to-green-700",
+      level: 65,
+      category: "Database",
+    },
+
+    // Frameworks/Platforms/Libraries
+    {
       name: "React",
       icon: "⚛️",
       color: "from-blue-300 to-blue-500",
@@ -96,10 +192,66 @@ export default function Portfolio() {
       category: "Frontend",
     },
     {
+      name: "React Vite",
+      icon: "⚡",
+      color: "from-purple-400 to-purple-600",
+      level: 85,
+      category: "Frontend",
+    },
+    {
       name: "Next.js",
       icon: "🚀",
       color: "from-gray-700 to-gray-900",
       level: 80,
+      category: "Frontend",
+    },
+    {
+      name: "Angular",
+      icon: "🅰️",
+      color: "from-red-500 to-red-700",
+      level: 60,
+      category: "Frontend",
+    },
+    {
+      name: "Firebase",
+      icon: "🔥",
+      color: "from-yellow-500 to-orange-600",
+      level: 70,
+      category: "Backend",
+    },
+    {
+      name: "Jupyter",
+      icon: "📓",
+      color: "from-orange-400 to-orange-600",
+      level: 80,
+      category: "Scientific",
+    },
+    {
+      name: "Django",
+      icon: "🎸",
+      color: "from-green-600 to-green-800",
+      level: 65,
+      category: "Backend",
+    },
+    {
+      name: "Anaconda",
+      icon: "🐍",
+      color: "from-green-500 to-green-700",
+      level: 75,
+      category: "Scientific",
+    },
+    {
+      name: "Bootstrap",
+      icon: "🅱️",
+      color: "from-purple-500 to-purple-700",
+      level: 80,
+      category: "Frontend",
+    },
+    {
+      name: "Tailwind CSS",
+      icon: "🌊",
+      color: "from-cyan-400 to-cyan-600",
+      level: 90,
       category: "Frontend",
     },
     {
@@ -116,61 +268,42 @@ export default function Portfolio() {
       level: 70,
       category: "Backend",
     },
+
+    // DevOps/Tools
     {
-      name: "Python",
-      icon: "🐍",
-      color: "from-blue-400 to-blue-600",
-      level: 80,
-      category: "Scripting",
-    },
-    {
-      name: "Go",
-      icon: "🐹",
-      color: "from-cyan-500 to-cyan-700",
-      level: 60,
-      category: "Systems",
-    },
-    {
-      name: "SQL",
-      icon: "📊",
-      color: "from-orange-400 to-orange-600",
-      level: 85,
-      category: "Database",
-    },
-    {
-      name: "C++",
-      icon: "🧰",
-      color: "from-red-500 to-red-700",
-      level: 50,
-      category: "Systems",
-    },
-    {
-      name: "Java",
-      icon: "☕",
-      color: "from-red-600 to-red-800",
-      level: 65,
-      category: "Backend",
-    },
-    {
-      name: "Bash",
-      icon: "💻",
-      color: "from-gray-600 to-gray-800",
-      level: 70,
-      category: "Scripting",
-    },
-    {
-      name: "R",
-      icon: "📈",
+      name: "Jenkins",
+      icon: "🔧",
       color: "from-blue-600 to-blue-800",
-      level: 75,
-      category: "Scientific",
+      level: 50,
+      category: "DevOps",
     },
     {
-      name: "MATLAB",
-      icon: "🧮",
-      color: "from-red-400 to-red-600",
+      name: "Docker",
+      icon: "🐳",
+      color: "from-blue-400 to-blue-600",
       level: 60,
-      category: "Scientific",
+      category: "DevOps",
+    },
+    {
+      name: "GitHub Actions",
+      icon: "⚡",
+      color: "from-gray-700 to-gray-900",
+      level: 65,
+      category: "DevOps",
+    },
+    {
+      name: "Ubuntu",
+      icon: "🐧",
+      color: "from-orange-500 to-orange-700",
+      level: 70,
+      category: "Systems",
+    },
+    {
+      name: "Kali Linux",
+      icon: "🐉",
+      color: "from-purple-600 to-purple-800",
+      level: 55,
+      category: "Systems",
     },
   ];
 
@@ -182,6 +315,7 @@ export default function Portfolio() {
     "Database",
     "Scripting",
     "Scientific",
+    "DevOps",
   ];
 
   const filteredLanguages =
