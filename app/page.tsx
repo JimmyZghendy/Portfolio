@@ -1379,7 +1379,8 @@ export default function Portfolio() {
                 .replace(
                   "to",
                   "to-700"
-                )} text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/25`}
+                )} text-gray-700 hover:text-gray-900 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/25`}
+              onClick={() => window.open("https://wa.me/96171755803", "_blank")}
             >
               Get In Touch
             </Button>
