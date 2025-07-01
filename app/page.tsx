@@ -14,6 +14,8 @@ import {
   Menu,
   X,
   Phone,
+  Facebook,
+  Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -1398,30 +1400,71 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              <div className="flex items-center space-x-6 mb-4 md:mb-0">
+              <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6 mb-4 md:mb-0 flex-wrap gap-2 sm:gap-0">
                 <Button
                   variant="ghost"
                   size="sm"
                   className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() =>
+                    window.open("https://github.com/JimmyZghendy", "_blank")
+                  }
                 >
                   <Github className="w-4 h-4" />
                 </Button>
+
                 <Button
                   variant="ghost"
                   size="sm"
                   className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/your-profile",
+                      "_blank"
+                    )
+                  }
                 >
                   <Linkedin className="w-4 h-4" />
                 </Button>
+
                 <Button
                   variant="ghost"
                   size="sm"
                   className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() =>
+                    window.open("mailto:jimmyelzghendy990@gmail.com")
+                  }
                 >
                   <Mail className="w-4 h-4" />
                 </Button>
-              </div>
 
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() =>
+                    window.open(
+                      "https://www.instagram.com/jimmyzghendi/",
+                      "_blank"
+                    )
+                  }
+                >
+                  <Instagram className="w-4 h-4" />
+                </Button>
+
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-gray-400 hover:text-white transition-colors"
+                  onClick={() =>
+                    window.open(
+                      "https://www.facebook.com/jimmy.zghendy/",
+                      "_blank"
+                    )
+                  }
+                >
+                  <Facebook className="w-4 h-4" />
+                </Button>
+              </div>
               <div className="flex items-center space-x-4">
                 <Button
                   onClick={cycleTheme}
