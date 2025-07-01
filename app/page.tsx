@@ -1211,14 +1211,14 @@ export default function Portfolio() {
                     },
                     {
                       year: "2024",
-                      title: "E-commerce Microservices",
+                      title: "Soon",
                       description: "Scalable distributed system architecture",
                       position: "right",
                       color: "from-blue-500 to-cyan-500",
                     },
                     {
                       year: "2022",
-                      title: "Blockchain Voting App",
+                      title: "Soon",
                       description:
                         "Secure voting platform with smart contracts",
                       position: "left",
@@ -1226,7 +1226,7 @@ export default function Portfolio() {
                     },
                     {
                       year: "2021",
-                      title: "Mobile Banking Solution",
+                      title: "Soon",
                       description: "Cross-platform financial application",
                       position: "right",
                       color: "from-orange-500 to-red-500",
