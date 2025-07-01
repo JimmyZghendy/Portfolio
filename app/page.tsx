@@ -1438,7 +1438,7 @@ export default function Portfolio() {
 
             <div className="mt-8 pt-8 border-t border-white/5 text-center">
               <p className="text-gray-500 text-sm">
-                © 2025 Jimmy Zghendy. All rights reserved.
+                © {new Date().getFullYear()} Jimmy Zghendy. All rights reserved.
               </p>
               <div
                 className={`mt-2 h-0.5 bg-gradient-to-r ${theme.primary} mx-auto w-24 opacity-50`}
