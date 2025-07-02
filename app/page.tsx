@@ -39,53 +39,13 @@ export default function Portfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const colorThemes = [
-    {
-      name: "Cyber Blue",
-      primary: "from-cyan-400 to-blue-600",
-      secondary: "from-blue-500 to-cyan-500",
-      accent: "from-purple-500 to-pink-500",
-      highlight: "cyan-400",
-      border: "cyan-400/30",
-    },
-    {
-      name: "Neon Green",
-      primary: "from-green-400 to-emerald-600",
-      secondary: "from-emerald-500 to-teal-500",
-      accent: "from-lime-500 to-green-500",
-      highlight: "emerald-400",
-      border: "emerald-400/30",
-    },
-    {
-      name: "Electric Purple",
-      primary: "from-purple-400 to-violet-600",
-      secondary: "from-violet-500 to-purple-500",
-      accent: "from-fuchsia-500 to-purple-500",
-      highlight: "purple-400",
-      border: "purple-400/30",
-    },
-    {
-      name: "Sunset Orange",
-      primary: "from-orange-400 to-red-600",
-      secondary: "from-red-500 to-orange-500",
-      accent: "from-yellow-500 to-orange-500",
-      highlight: "orange-400",
-      border: "orange-400/30",
-    },
-    {
-      name: "Rose Gold",
-      primary: "from-pink-400 to-rose-600",
-      secondary: "from-rose-500 to-pink-500",
-      accent: "from-amber-500 to-pink-500",
-      highlight: "rose-400",
-      border: "rose-400/30",
-    },
-  ];
-
-  const theme = colorThemes[currentTheme];
+  const [activeItem, setActiveItem] = useState("About");
+  const [currentTheme, setCurrentTheme] = useState(0);
+  const theme = {
+    primary: "from-blue-400 to-purple-600",
+    highlight: "blue-400",
+  };
 
   const programmingLanguages = [
     // Programming Languages
@@ -339,10 +299,6 @@ export default function Portfolio() {
           (lang) => lang.category === selectedCategory
         );
 
-  const cycleTheme = () => {
-    setCurrentTheme((prev) => (prev + 1) % colorThemes.length);
-  };
-
   useEffect(() => {
     setIsVisible(true);
 
@@ -402,43 +358,89 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
-      {/* Animated Background */}
-      <div className="fixed inset-0 z-0">
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.3) 0%, transparent 50%)`,
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-teal-900/20" />
+    <div className="min-h-screen relative">
+      {/* Graph Paper Background */}
+      <div
+        className="fixed inset-0 bg-black"
+        style={{
+          backgroundImage: `
+          linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+        `,
+          backgroundSize: "20px 20px",
+        }}
+      />
 
-        {/* Floating Particles */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-            }}
-          />
-        ))}
+      {/* Alternative approach with SVG for more precise control */}
+      <div className="fixed inset-0">
+        <svg width="100%" height="100%" className="absolute inset-0">
+          <defs>
+            <pattern
+              id="graphPaper"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 20 0 L 0 0 0 20"
+                fill="none"
+                stroke="rgba(59, 130, 246, 0.15)"
+                strokeWidth="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#graphPaper)" />
+        </svg>
+      </div>
+      {/* Content area */}
+      <div className="relative z-10 pt-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h1 className="text-4xl font-bold text-white mb-8">
+            Welcome to My Portfolio
+          </h1>
+          <p className="text-gray-300 text-lg">Your content goes here...</p>
+
+          {/* Example content to show the grid background */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Project 1
+              </h3>
+              <p className="text-gray-300">Description of your project...</p>
+            </div>
+            <div className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Project 2
+              </h3>
+              <p className="text-gray-300">Description of your project...</p>
+            </div>
+            <div className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-white mb-3">
+                Project 3
+              </h3>
+              <p className="text-gray-300">Description of your project...</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Navigation Bar */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-8 py-3">
+      {/* Navbar */}
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/80 backdrop-blur-md border border-blue-500/20 rounded-full px-8 py-3">
         <div className="flex items-center justify-center">
           <div className="flex items-center space-x-2">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
+              const isActive = activeItem === item.name;
               return (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm font-medium relative group"
+                  onClick={() => setActiveItem(item.name)}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium relative group ${
+                    isActive
+                      ? "text-blue-400 bg-blue-500/20 border border-blue-500/30"
+                      : "text-gray-300 hover:text-white hover:bg-blue-500/10"
+                  }`}
                 >
                   <IconComponent className="w-4 h-4" />
                   <span>{item.name}</span>
@@ -451,7 +453,7 @@ export default function Portfolio() {
           <div className="md:hidden ml-4">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex items-center justify-center w-10 h-10 rounded-full text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
+              className="flex items-center justify-center w-10 h-10 rounded-full text-gray-300 hover:text-white hover:bg-blue-500/10 transition-all duration-300"
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -465,23 +467,27 @@ export default function Portfolio() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 md:hidden">
-            <div className="bg-black/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 min-w-[200px]">
-              <div className="flex flex-col space-y-3">
+            <div className="bg-black/90 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4">
+              <div className="flex items-center justify-center space-x-4">
                 {navigationItems.map((item) => {
                   const IconComponent = item.icon;
+                  const isActive = activeItem === item.name;
                   return (
                     <a
                       key={item.name}
                       href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm font-medium py-2 px-3 rounded-lg ${
-                        item.highlight
-                          ? "text-orange-400 hover:text-orange-300"
-                          : ""
+                      onClick={() => {
+                        setActiveItem(item.name);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
+                        isActive
+                          ? "text-blue-400 bg-blue-500/20 border border-blue-500/30"
+                          : "text-gray-300 hover:text-white hover:bg-blue-500/10"
                       }`}
+                      title={item.name}
                     >
-                      <IconComponent className="w-4 h-4" />
-                      <span>{item.name}</span>
+                      <IconComponent className="w-5 h-5" />
                     </a>
                   );
                 })}
@@ -604,7 +610,7 @@ export default function Portfolio() {
         <section id="experience" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <h2
-              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.secondary} bg-clip-text text-transparent`}
+              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
             >
               Professional Experience
             </h2>
@@ -669,7 +675,7 @@ export default function Portfolio() {
                         {exp.technologies.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className={`px-3 py-1 bg-white/10 rounded-full text-sm text-${theme.highlight} border border-${theme.border} hover:bg-${theme.highlight}/10 transition-colors`}
+                            className={`px-3 py-1 bg-white/10 rounded-full text-sm text-${theme.highlight} border border-${theme.primary} hover:bg-${theme.highlight}/10 transition-colors`}
                           >
                             {tech}
                           </span>
@@ -686,7 +692,7 @@ export default function Portfolio() {
         <section id="education" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <h2
-              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.accent} bg-clip-text text-transparent`}
+              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
             >
               Education
             </h2>
@@ -1004,7 +1010,7 @@ export default function Portfolio() {
         <section id="visualization" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <h2
-              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.accent} bg-clip-text text-transparent`}
+              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
             >
               Project Visualizations
             </h2>
@@ -1343,7 +1349,7 @@ export default function Portfolio() {
         <section id="contact" className="py-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2
-              className={`text-4xl font-bold mb-8 bg-gradient-to-r ${theme.accent} bg-clip-text text-transparent`}
+              className={`text-4xl font-bold mb-8 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
             >
               {"Let's Build Something Amazing"}
             </h2>
@@ -1450,14 +1456,13 @@ export default function Portfolio() {
               </div>
               <div className="flex items-center space-x-4">
                 <Button
-                  onClick={cycleTheme}
                   variant="ghost"
                   size="sm"
                   className={`text-${theme.highlight} hover:text-white transition-all duration-300 hover:scale-110`}
-                  title={`Current: ${theme.name}`}
+                  title={`Current: ${theme.primary}`}
                 >
                   <Palette className="w-4 h-4 mr-2" />
-                  {theme.name}
+                  {theme.primary}
                 </Button>
               </div>
             </div>
