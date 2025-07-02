@@ -392,37 +392,6 @@ export default function Portfolio() {
           <rect width="100%" height="100%" fill="url(#graphPaper)" />
         </svg>
       </div>
-      {/* Content area */}
-      <div className="relative z-10 pt-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl font-bold text-white mb-8">
-            Welcome to My Portfolio
-          </h1>
-          <p className="text-gray-300 text-lg">Your content goes here...</p>
-
-          {/* Example content to show the grid background */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Project 1
-              </h3>
-              <p className="text-gray-300">Description of your project...</p>
-            </div>
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Project 2
-              </h3>
-              <p className="text-gray-300">Description of your project...</p>
-            </div>
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-white mb-3">
-                Project 3
-              </h3>
-              <p className="text-gray-300">Description of your project...</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Navbar */}
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/80 backdrop-blur-md border border-blue-500/20 rounded-full px-8 py-3">
@@ -563,14 +532,13 @@ export default function Portfolio() {
                   key={index}
                   variant="outline"
                   size="lg"
-                  className="bg-white/10 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-300 hover:scale-110 text-white hover:text-white"
                   onClick={() => window.open(url, "_blank")}
                 >
                   <Icon className="w-5 h-5" />
                 </Button>
               ))}
             </div>
-
             <ChevronDown
               className={`w-8 h-8 mx-auto animate-bounce text-${theme.highlight}`}
             />
@@ -589,7 +557,7 @@ export default function Portfolio() {
               {skills.map((skill, index) => (
                 <Card
                   key={index}
-                  className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 group"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group"
                 >
                   <CardContent className="p-6 text-center">
                     <div
@@ -648,7 +616,7 @@ export default function Portfolio() {
               ].map((exp, index) => (
                 <Card
                   key={index}
-                  className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-[1.02] group"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-[1.02] group"
                 >
                   <div className={`h-1 bg-gradient-to-r ${exp.gradient}`} />
                   <CardContent className="p-8">
@@ -675,7 +643,7 @@ export default function Portfolio() {
                         {exp.technologies.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className={`px-3 py-1 bg-white/10 rounded-full text-sm text-${theme.highlight} border border-${theme.primary} hover:bg-${theme.highlight}/10 transition-colors`}
+                            className={`px-3 py-1 bg-gray-900/50 backdrop-blur-sm rounded-full text-sm text-${theme.highlight} border border-blue-500/20 hover:bg-gray-900/70 transition-colors`}
                           >
                             {tech}
                           </span>
@@ -736,7 +704,7 @@ export default function Portfolio() {
               ].map((edu, index) => (
                 <Card
                   key={index}
-                  className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 group"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group"
                 >
                   <div className={`h-2 bg-gradient-to-r ${edu.gradient}`} />
                   <CardContent className="p-6">
@@ -750,8 +718,8 @@ export default function Portfolio() {
                     </p>
                     <p className="text-gray-400 mb-2">{edu.period}</p>
                     {/*<p className={`text-${theme.highlight} font-medium mb-2`}>
-                      GPA: {edu.gpa}
-                    </p>*/}
+      GPA: {edu.gpa}
+    </p>*/}
                     <p className="text-gray-300 mb-4">Focus: {edu.focus}</p>
                     <div className="space-y-1">
                       <p className="text-sm text-gray-400 font-medium">
@@ -760,7 +728,7 @@ export default function Portfolio() {
                       {edu.achievements.map((achievement, achIndex) => (
                         <span
                           key={achIndex}
-                          className="inline-block px-2 py-1 bg-white/10 rounded text-xs text-orange-300 border border-orange-400/30 mr-2 mb-1"
+                          className="inline-block px-2 py-1 bg-gray-900/50 backdrop-blur-sm rounded text-xs text-orange-300 border border-blue-500/20 mr-2 mb-1 hover:bg-gray-900/70 transition-colors"
                         >
                           {achievement}
                         </span>
@@ -807,7 +775,7 @@ export default function Portfolio() {
               ].map((lang, index) => (
                 <Card
                   key={index}
-                  className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 group"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group"
                 >
                   <CardContent className="p-6 text-center">
                     <div className="text-4xl mb-4 group-hover:animate-bounce transition-all duration-300">
@@ -821,7 +789,7 @@ export default function Portfolio() {
                     </p>
 
                     {/* Progress Bar */}
-                    <div className="w-full bg-white/10 rounded-full h-3 mb-2 overflow-hidden">
+                    <div className="w-full bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 rounded-full h-3 mb-2 overflow-hidden">
                       <div
                         className={`h-full bg-gradient-to-r ${lang.gradient} rounded-full transition-all duration-1000 ease-out group-hover:animate-pulse`}
                         style={{ width: `${lang.proficiency}%` }}
@@ -1045,7 +1013,7 @@ export default function Portfolio() {
               ].map((stat, index) => (
                 <Card
                   key={index}
-                  className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 group text-center"
+                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group text-center"
                 >
                   <CardContent className="p-6">
                     <div className="text-4xl mb-3 group-hover:animate-bounce transition-all duration-300">
