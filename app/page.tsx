@@ -16,13 +16,25 @@ import {
   Phone,
   Facebook,
   Instagram,
+  Globe,
+  Settings,
+  User,
+  Grid3X3,
+  Trophy,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 // Simple JZ component
 const JZ = () => <span>&lt;JZ/&gt;</span>;
-
+const navigationItems = [
+  { name: "About", href: "#home", icon: User, highlight: true },
+  { name: "Services", href: "#skills", icon: Grid3X3, highlight: false },
+  { name: "Experience", href: "#experience", icon: Trophy, highlight: false },
+  { name: "Skills", href: "#education", icon: Settings, highlight: false },
+  { name: "Projects", href: "#visualization", icon: Globe, highlight: false },
+  { name: "Contact", href: "#contact", icon: Mail, highlight: false },
+];
 export default function Portfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
@@ -417,96 +429,66 @@ export default function Portfolio() {
       </div>
 
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div
-              className={`text-xl font-bold bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
-            >
-              <JZ />
-            </div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {[
-                { name: "Home", href: "#home" },
-                { name: "Skills", href: "#skills" },
-                { name: "Experience", href: "#experience" },
-                { name: "Education", href: "#education" },
-                { name: "Languages", href: "#languages" },
-                { name: "Projects", href: "#visualization" },
-                { name: "Contact", href: "#contact" },
-              ].map((item) => (
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-8 py-3">
+        <div className="flex items-center justify-center">
+          <div className="flex items-center space-x-2">
+            {navigationItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
                 <a
                   key={item.name}
                   href={item.href}
-                  className={`text-gray-300 hover:text-${theme.highlight} transition-colors duration-300 text-sm font-medium relative group`}
+                  className="flex items-center space-x-2 px-4 py-2 rounded-full text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm font-medium relative group"
                 >
-                  {item.name}
-                  <span
-                    className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r ${theme.primary} group-hover:w-full transition-all duration-300`}
-                  ></span>
+                  <IconComponent className="w-4 h-4" />
+                  <span>{item.name}</span>
                 </a>
-              ))}
-            </div>
-
-            {/* Theme Switcher & Mobile Menu Button */}
-            <div className="flex items-center space-x-4">
-              <Button
-                onClick={cycleTheme}
-                variant="ghost"
-                size="sm"
-                className={`text-${theme.highlight} hover:text-white transition-all duration-300 hover:scale-110`}
-                title={`Switch to ${
-                  colorThemes[(currentTheme + 1) % colorThemes.length].name
-                } theme`}
-              >
-                <Palette className="w-4 h-4" />
-              </Button>
-
-              {/* Mobile Menu Button */}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="md:hidden text-white"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-5 h-5" />
-                ) : (
-                  <Menu className="w-5 h-5" />
-                )}
-              </Button>
-            </div>
+              );
+            })}
           </div>
 
-          {/* Mobile Navigation */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-white/10">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden ml-4">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="flex items-center justify-center w-10 h-10 rounded-full text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 md:hidden">
+            <div className="bg-black/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 min-w-[200px]">
               <div className="flex flex-col space-y-3">
-                {[
-                  { name: "Home", href: "#home" },
-                  { name: "Skills", href: "#skills" },
-                  { name: "Experience", href: "#experience" },
-                  { name: "Education", href: "#education" },
-                  { name: "Languages", href: "#languages" },
-                  { name: "Projects", href: "#visualization" },
-                  { name: "Contact", href: "#contact" },
-                ].map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={`text-gray-300 hover:text-${theme.highlight} transition-colors duration-300 text-sm font-medium px-4 py-2 rounded-lg hover:bg-white/5`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navigationItems.map((item) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm font-medium py-2 px-3 rounded-lg ${
+                        item.highlight
+                          ? "text-orange-400 hover:text-orange-300"
+                          : ""
+                      }`}
+                    >
+                      <IconComponent className="w-4 h-4" />
+                      <span>{item.name}</span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </nav>
 
       {/* Content */}
