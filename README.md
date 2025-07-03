@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with Next.js and deployed on Vercel
 
 ## 🚀 Live Demo
 
-[View Live Portfolio](https://your-portfolio-url.vercel.app)
+[View Live Portfolio](https://jimmyzghendy.is-a.dev/)
 
 ## 📋 Table of Contents
 
@@ -60,8 +60,8 @@ Make sure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-portfolio.git
-cd your-portfolio
+git clone https://github.com/JimmyZghendy/portfolio.git
+cd portfolio
 ```
 
 2. Install dependencies:
@@ -201,9 +201,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-**Your Name** - [@yourtwitterhandle](https://twitter.com/yourtwitterhandle) - your.email@example.com
+**Jimmy Zghendy** - jimmyelzghendy990@gmail.com
 
-Project Link: [https://github.com/yourusername/your-portfolio](https://github.com/yourusername/your-portfolio)
+Project Link: [https://github.com/JimmyZghendy/portfolio](https://github.com/JimmyZghendy/yportfolio)
 
 ## 🙏 Acknowledgments
 
