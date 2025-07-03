@@ -11,16 +11,15 @@ import {
   Cpu,
   Zap,
   Palette,
-  Menu,
-  X,
   Phone,
   Facebook,
   Instagram,
-  Globe,
-  Settings,
   User,
-  Grid3X3,
-  Trophy,
+  GlobeLock,
+  LucideServerCog,
+  Hourglass,
+  LucideWaypoints,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -29,10 +28,37 @@ import { Card, CardContent } from "@/components/ui/card";
 const JZ = () => <span>&lt;JZ/&gt;</span>;
 const navigationItems = [
   { name: "About", href: "#home", icon: User, highlight: true },
-  { name: "Services", href: "#skills", icon: Grid3X3, highlight: false },
-  { name: "Experience", href: "#experience", icon: Trophy, highlight: false },
-  { name: "Skills", href: "#education", icon: Settings, highlight: false },
-  { name: "Projects", href: "#visualization", icon: Globe, highlight: false },
+
+  {
+    name: "Services",
+    href: "#skills",
+    icon: LucideServerCog,
+    highlight: false,
+  },
+  {
+    name: "Experience",
+    href: "#experience",
+    icon: Hourglass,
+    highlight: false,
+  },
+  {
+    name: "Education",
+    href: "#education",
+    icon: Award,
+    highlight: false,
+  },
+  {
+    name: "Skills",
+    href: "#languages",
+    icon: LucideWaypoints,
+    highlight: false,
+  },
+  {
+    name: "Projects",
+    href: "#visualization",
+    icon: GlobeLock,
+    highlight: false,
+  },
   { name: "Contact", href: "#contact", icon: Mail, highlight: false },
 ];
 export default function Portfolio() {
