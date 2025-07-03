@@ -394,9 +394,9 @@ export default function Portfolio() {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/80 backdrop-blur-md border border-blue-500/20 rounded-full px-8 py-3">
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/80 backdrop-blur-md border border-blue-500/20 rounded-full px-4 md:px-8 py-3">
         <div className="flex items-center justify-center">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 md:space-x-2">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               const isActive = activeItem === item.name;
@@ -405,65 +405,21 @@ export default function Portfolio() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setActiveItem(item.name)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium relative group ${
+                  className={`flex items-center space-x-2 px-3 md:px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium relative group ${
                     isActive
                       ? "text-blue-400 bg-blue-500/20 border border-blue-500/30"
                       : "text-gray-300 hover:text-white hover:bg-blue-500/10"
                   }`}
+                  title={item.name} // Tooltip for mobile users
                 >
                   <IconComponent className="w-4 h-4" />
-                  <span>{item.name}</span>
+                  {/* Hide text on mobile, show on md and up */}
+                  <span className="hidden md:inline">{item.name}</span>
                 </a>
               );
             })}
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden ml-4">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex items-center justify-center w-10 h-10 rounded-full text-gray-300 hover:text-white hover:bg-blue-500/10 transition-all duration-300"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
-          </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 md:hidden">
-            <div className="bg-black/90 backdrop-blur-md border border-blue-500/20 rounded-2xl p-4">
-              <div className="flex items-center justify-center space-x-4">
-                {navigationItems.map((item) => {
-                  const IconComponent = item.icon;
-                  const isActive = activeItem === item.name;
-                  return (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => {
-                        setActiveItem(item.name);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
-                        isActive
-                          ? "text-blue-400 bg-blue-500/20 border border-blue-500/30"
-                          : "text-gray-300 hover:text-white hover:bg-blue-500/10"
-                      }`}
-                      title={item.name}
-                    >
-                      <IconComponent className="w-5 h-5" />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        )}
       </nav>
 
       {/* Content */}
