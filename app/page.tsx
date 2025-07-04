@@ -72,8 +72,8 @@ export default function Portfolio() {
     primary: "from-blue-400 to-purple-600",
     highlight: "blue-400",
   };
-
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   const programmingLanguages = [
@@ -352,7 +352,7 @@ export default function Portfolio() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    handleScroll(); // Initial calculation
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -476,6 +476,10 @@ export default function Portfolio() {
       ],
     },
   ];
+
+  const handleCardClick = (index: number) => {
+    setActiveCard(activeCard === index ? null : index);
+  };
 
   return (
     <div className="min-h-screen relative">
@@ -650,7 +654,7 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-
+        {/* Experience Section */}
         <section
           ref={sectionRef}
           id="experience"
@@ -667,10 +671,12 @@ export default function Portfolio() {
 
               {/* Animated timeline line (foreground) */}
               <div
-                className="absolute left-4 top-0 w-0.5 bg-gradient-to-b from-blue-500 to-cyan-500 transition-all duration-300 ease-out"
+                className="absolute left-4 top-0 w-0.5 bg-gradient-to-b from-blue-400 via-blue-500 to-cyan-500 transition-all duration-300 ease-out"
                 style={{
                   height: `${scrollProgress * 100}%`,
-                  boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
+                  boxShadow:
+                    "0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2)",
+                  filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))",
                 }}
               ></div>
 
@@ -681,27 +687,66 @@ export default function Portfolio() {
                     <div
                       className={`absolute left-2 w-4 h-4 rounded-full border-4 border-gray-950 z-10 transition-all duration-500 ${
                         scrollProgress > (index + 1) / experiences.length
-                          ? "bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/50 scale-110"
-                          : "bg-gray-600"
+                          ? "bg-gradient-to-r from-blue-400 to-cyan-400 scale-110"
+                          : "bg-gradient-to-r from-blue-600 to-blue-800"
+                      } ${
+                        activeCard === index ? "scale-125 animate-pulse" : ""
                       }`}
+                      style={{
+                        boxShadow:
+                          scrollProgress > (index + 1) / experiences.length ||
+                          activeCard === index
+                            ? "0 0 15px rgba(59, 130, 246, 0.8), 0 0 25px rgba(59, 130, 246, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2)"
+                            : "0 0 8px rgba(59, 130, 246, 0.4), inset 0 0 5px rgba(255, 255, 255, 0.1)",
+                        filter:
+                          scrollProgress > (index + 1) / experiences.length ||
+                          activeCard === index
+                            ? "drop-shadow(0 0 6px rgba(59, 130, 246, 0.7))"
+                            : "drop-shadow(0 0 3px rgba(59, 130, 246, 0.3))",
+                      }}
                     ></div>
 
                     {/* Content */}
                     <div className="ml-12 w-full">
                       <Card
-                        className={`bg-gray-900/80 backdrop-blur-sm border transition-all duration-500 hover:bg-gray-900/90 ${
-                          scrollProgress > (index + 1) / experiences.length
+                        onClick={() => handleCardClick(index)}
+                        className={`bg-gray-900/80 backdrop-blur-sm border transition-all duration-500 hover:bg-gray-900/90 cursor-pointer transform hover:scale-[1.02] ${
+                          activeCard === index
+                            ? "border-blue-400 shadow-2xl shadow-blue-500/40 scale-[1.03] bg-gray-900/95"
+                            : scrollProgress > (index + 1) / experiences.length
                             ? "border-blue-500/50 shadow-lg shadow-blue-500/20"
-                            : "border-blue-500/20"
+                            : "border-blue-500/20 hover:border-blue-400/40"
                         }`}
+                        style={{
+                          boxShadow:
+                            activeCard === index
+                              ? "0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2), inset 0 0 20px rgba(59, 130, 246, 0.1)"
+                              : undefined,
+                          animation:
+                            activeCard === index
+                              ? "pulse 2s infinite"
+                              : undefined,
+                        }}
                       >
                         <CardContent className="p-8">
                           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                             <div className="flex-1">
-                              <h3 className="text-2xl font-bold text-white mb-2 hover:text-blue-400 transition-colors">
+                              <h3
+                                className={`text-2xl font-bold mb-2 transition-colors duration-300 ${
+                                  activeCard === index
+                                    ? "text-blue-300"
+                                    : "text-white hover:text-blue-400"
+                                }`}
+                              >
                                 {exp.title}
                               </h3>
-                              <p className="text-lg text-blue-400 font-semibold mb-1">
+                              <p
+                                className={`text-lg font-semibold mb-1 transition-colors duration-300 ${
+                                  activeCard === index
+                                    ? "text-blue-300"
+                                    : "text-blue-400"
+                                }`}
+                              >
                                 {exp.company}
                               </p>
                               <p className="text-blue-300 text-sm italic mb-3">
@@ -733,11 +778,24 @@ export default function Portfolio() {
                             {exp.technologies.map((tech, techIndex) => (
                               <span
                                 key={techIndex}
-                                className="px-3 py-1 bg-blue-500/10 backdrop-blur-sm rounded-full text-sm text-blue-300 border border-blue-500/30 hover:bg-blue-500/20 hover:border-blue-400/50 transition-all duration-200"
+                                className={`px-3 py-1 backdrop-blur-sm rounded-full text-sm border transition-all duration-200 ${
+                                  activeCard === index
+                                    ? "bg-blue-500/20 text-blue-200 border-blue-400/50 shadow-lg shadow-blue-500/20"
+                                    : "bg-blue-500/10 text-blue-300 border-blue-500/30 hover:bg-blue-500/20 hover:border-blue-400/50"
+                                }`}
                               >
                                 {tech}
                               </span>
                             ))}
+                          </div>
+
+                          {/* Click indicator */}
+                          <div className="mt-4 text-center">
+                            <span className="text-xs text-blue-400/60 hover:text-blue-400 transition-colors">
+                              {activeCard === index
+                                ? "Click to collapse"
+                                : "Click to expand"}
+                            </span>
                           </div>
                         </CardContent>
                       </Card>
@@ -748,6 +806,7 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
+
         {/* Education Section */}
         <section id="education" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
