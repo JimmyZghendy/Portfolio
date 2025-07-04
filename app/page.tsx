@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   ChevronDown,
   Github,
@@ -72,6 +72,9 @@ export default function Portfolio() {
     primary: "from-blue-400 to-purple-600",
     highlight: "blue-400",
   };
+
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const programmingLanguages = [
     // Programming Languages
@@ -326,6 +329,35 @@ export default function Portfolio() {
         );
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const section = sectionRef.current;
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+
+      // Calculate when section starts and ends being visible
+      const sectionStart = sectionTop - windowHeight;
+      const sectionEnd = sectionTop + sectionHeight;
+
+      // Calculate progress (0 to 1)
+      const totalScrollDistance = sectionEnd - sectionStart;
+      const currentProgress = (scrollTop - sectionStart) / totalScrollDistance;
+
+      // Clamp between 0 and 1
+      const clampedProgress = Math.max(0, Math.min(1, currentProgress));
+      setScrollProgress(clampedProgress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     setIsVisible(true);
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -380,6 +412,68 @@ export default function Portfolio() {
         "Secure and transparent voting platform using smart contracts",
       tech: ["Solidity", "Web3.js", "React", "IPFS"],
       gradient: "from-rose-600 to-pink-600",
+    },
+  ];
+
+  const experiences = [
+    {
+      title: "Accounting Associate",
+      company: "Municipality of Jounieh",
+      location: "Jounieh, Lebanon (On-site)",
+      period: "November 2024 - Present",
+      description:
+        "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently.",
+      details: [
+        "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently.",
+        "Worked with the Windows Subsystem for Linux (WSL) to enhance coding and system administration skills.",
+        "Maintained accurate financial records and documentation for municipal operations.",
+        "Collaborated with team members to streamline accounting processes and improve efficiency.",
+      ],
+      technologies: [
+        "WSL",
+        "Financial Analysis",
+        "Contract Management",
+        "Compliance",
+      ],
+    },
+    {
+      title: "Instructor Robotics",
+      company: "Ombael",
+      location: "Jbeil, Lebanon (On-site)",
+      period: "2023 - Present",
+      description:
+        "Robotics instructor using LEGO WeDo 2.0 to help kids aged 5 years and above gain new skills and experience robotics in a fun way.",
+      details: [
+        "Built a system for warehouse management, including manager assignment, driver information, and route-bin allocation.",
+        "Added features for dispatchers to create-manage jobs, track bin statuses, and progress with driver updates on job status.",
+        "Developed tools for weighing collected waste, sorting by material type and managing material slots.",
+        "Created a dynamic dashboard with charts to visualize warehouse usage, material weights, and job progress.",
+        "Defined roles (admin, manager, dispatcher, driver) with specific permissions.",
+      ],
+      technologies: ["LEGO WeDo 2.0", "Programming", "Education", "Robotics"],
+    },
+    {
+      title: "Research Intern",
+      company: "Potech",
+      location: "Lebanon (Remote)",
+      period: "March 2024 - May 2024",
+      description:
+        "Gained valuable experience in cybersecurity, working on various projects and challenges with strong proficiency in Kali Linux.",
+      details: [
+        "Developed a system for managing software licenses (demo, renewal, activation, expiration).",
+        "Tracked license keys, activation statuses, expiration dates.",
+        "Built dashboard with filters to manage licenses, clients, statuses.",
+        "Developed a phishing simulation tool using PHP and phpMyAdmin, deployed on 000webhost.",
+        "Improved reporting, stock control, and usability.",
+      ],
+      technologies: [
+        "PHP",
+        "phpMyAdmin",
+        "JavaScript",
+        "Bash",
+        "Git",
+        "Kali Linux",
+      ],
     },
   ];
 
@@ -556,85 +650,101 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-        {/* Experience Section */}
-        <section id="experience" className="py-20 px-6">
+
+        <section
+          ref={sectionRef}
+          id="experience"
+          className="py-20 px-6 bg-gray-950"
+        >
           <div className="max-w-6xl mx-auto">
-            <h2
-              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
-            >
-              Professional Experience
+            <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Experiences
             </h2>
 
-            <div className="space-y-8">
-              {[
-                {
-                  title: "Accounting Associate",
-                  company: "Municipality of Jounieh",
-                  period: "November 2024 - Present",
-                  description:
-                    "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently. Worked with the Windows Subsystem for Linux (WSL) to enhance coding and system administration skills.",
-                  /*technologies: ["Vue.js", "Express.js", "MongoDB", "Redis"],*/
-                  gradient: "from-blue-500 to-cyan-500",
-                },
-                {
-                  title: "Instructor Robotics",
-                  company: "Ombael ",
-                  period: "2023 - Present",
-                  description:
-                    "Robotics instructor at Ombael colonie Jbeil Lebanon. Using LEGO wedo2.0 to help kids aged 5 years and above gain new skills and experience robotics in a fun way. I give classes with up to 10 students, managing to give each one of them the help that they need to insure that each student finishes their project on time and understands how the programing works. I'm also a coding instructor, using code.org to deliver the basics of coding to kids in the best way that suits their capabilities. Helping them understand coding functions (if condition, if else, loop...) in a fun and easy way.",
-                  technologies: ["Wedo2.0", "Lego", "Coding", "Programming"],
-                  // ["React", "Node.js", "AWS", "Docker", "Python"],
-                  gradient: "from-purple-500 to-pink-500",
-                },
-                {
-                  title: "Research Intern",
-                  company: "Potech",
-                  period: "March 2024 - May 2024",
-                  description:
-                    "Gained valuable experience in the field of cybersecurity, working on various projects and challenges. Developed strong proficiency in Kali Linux, particularly for security testing. Developed a phishing simulation tool using PHP and phpMyAdmin, deployed 000webhost, to test security vulnerabilities.",
-                  technologies: ["phpMyAdmin", "JavaScript", "Bash", "Git"],
-                  gradient: "from-green-500 to-emerald-500",
-                },
-              ].map((exp, index) => (
-                <Card
-                  key={index}
-                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-[1.02] group"
-                >
-                  <div className={`h-1 bg-gradient-to-r ${exp.gradient}`} />
-                  <CardContent className="p-8">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
-                          {exp.title}
-                        </h3>
-                        <p
-                          className={`text-lg text-${theme.highlight} font-semibold`}
-                        >
-                          {exp.company}
-                        </p>
-                      </div>
-                      <span className="text-gray-400 font-medium mt-2 md:mt-0">
-                        {exp.period}
-                      </span>
+            <div className="relative">
+              {/* Static timeline line (background) */}
+              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-700/50"></div>
+
+              {/* Animated timeline line (foreground) */}
+              <div
+                className="absolute left-4 top-0 w-0.5 bg-gradient-to-b from-blue-500 to-cyan-500 transition-all duration-300 ease-out"
+                style={{
+                  height: `${scrollProgress * 100}%`,
+                  boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
+                }}
+              ></div>
+
+              <div className="space-y-12">
+                {experiences.map((exp, index) => (
+                  <div key={index} className="relative flex items-start">
+                    {/* Timeline dot with animation */}
+                    <div
+                      className={`absolute left-2 w-4 h-4 rounded-full border-4 border-gray-950 z-10 transition-all duration-500 ${
+                        scrollProgress > (index + 1) / experiences.length
+                          ? "bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/50 scale-110"
+                          : "bg-gray-600"
+                      }`}
+                    ></div>
+
+                    {/* Content */}
+                    <div className="ml-12 w-full">
+                      <Card
+                        className={`bg-gray-900/80 backdrop-blur-sm border transition-all duration-500 hover:bg-gray-900/90 ${
+                          scrollProgress > (index + 1) / experiences.length
+                            ? "border-blue-500/50 shadow-lg shadow-blue-500/20"
+                            : "border-blue-500/20"
+                        }`}
+                      >
+                        <CardContent className="p-8">
+                          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+                            <div className="flex-1">
+                              <h3 className="text-2xl font-bold text-white mb-2 hover:text-blue-400 transition-colors">
+                                {exp.title}
+                              </h3>
+                              <p className="text-lg text-blue-400 font-semibold mb-1">
+                                {exp.company}
+                              </p>
+                              <p className="text-blue-300 text-sm italic mb-3">
+                                {exp.location} • {exp.period}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="mb-6">
+                            <h4 className="text-lg font-semibold text-blue-300 mb-3">
+                              {exp.description.split(".")[0]}
+                            </h4>
+                            <ul className="space-y-2">
+                              {exp.details.map((detail, detailIndex) => (
+                                <li
+                                  key={detailIndex}
+                                  className="flex items-start text-gray-300 text-sm leading-relaxed"
+                                >
+                                  <span className="text-blue-400 mr-2 mt-1.5 text-xs">
+                                    •
+                                  </span>
+                                  <span>{detail}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech, techIndex) => (
+                              <span
+                                key={techIndex}
+                                className="px-3 py-1 bg-blue-500/10 backdrop-blur-sm rounded-full text-sm text-blue-300 border border-blue-500/30 hover:bg-blue-500/20 hover:border-blue-400/50 transition-all duration-200"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
                     </div>
-                    <p className="text-gray-300 mb-4 leading-relaxed">
-                      {exp.description}
-                    </p>
-                    {exp.technologies && (
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className={`px-3 py-1 bg-gray-900/50 backdrop-blur-sm rounded-full text-sm text-${theme.highlight} border border-blue-500/20 hover:bg-gray-900/70 transition-colors`}
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
