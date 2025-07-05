@@ -951,7 +951,12 @@ export default function Portfolio() {
             <div className="flex items-center justify-center">
               <div className="flex items-center gap-8 flex-wrap justify-center max-w-7xl">
                 {programmingLanguages.map((skill, index) => {
-                  const IconComponent = skill.icon;
+                  const IconComponent = skill.icon as React.ComponentType<{
+                    className?: string;
+                    style?: React.CSSProperties;
+                    onMouseEnter?: (e: React.MouseEvent<SVGElement>) => void;
+                    onMouseLeave?: (e: React.MouseEvent<SVGElement>) => void;
+                  }>;
                   const isVisible = visibleItems.includes(index);
 
                   return (
