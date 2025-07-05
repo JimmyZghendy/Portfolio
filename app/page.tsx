@@ -20,7 +20,60 @@ import {
   Hourglass,
   LucideWaypoints,
   Award,
+  Code2,
+  Globe,
+  Server,
+  Terminal,
+  Layers,
+  GitBranch,
+  Cloud,
+  Settings,
+  FileCode,
+  Shield,
+  Rocket,
+  Brain,
+  Wrench,
+  Box,
+  Coffee,
+  ExternalLink,
 } from "lucide-react";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiCplusplus,
+  SiC,
+  SiPhp,
+  SiHtml5,
+  SiCss3,
+  SiMysql,
+  SiPostgresql,
+  SiMongodb,
+  SiReact,
+  SiNextdotjs,
+  SiAngular,
+  SiNodedotjs,
+  SiExpress,
+  SiFirebase,
+  SiDocker,
+  SiGit,
+  SiTailwindcss,
+  SiBootstrap,
+  SiDjango,
+  SiFlutter,
+  SiLaravel,
+  SiDotnet,
+  SiFlask,
+  SiGo,
+  SiPostman,
+  SiGithub,
+  SiFigma,
+  SiNotion,
+  SiWordpress,
+  SiJira,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -77,256 +130,195 @@ export default function Portfolio() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const programmingLanguages = [
-    // Programming Languages
     {
-      name: "JavaScript",
-      icon: "⚛️",
-      color: "from-yellow-500 to-yellow-700",
-      level: 90,
-      category: "Frontend",
+      name: "Tailwind",
+      icon: SiTailwindcss,
+      url: "https://tailwindcss.com/docs",
     },
     {
-      name: "TypeScript",
-      icon: "🟦",
-      color: "from-blue-500 to-blue-700",
-      level: 85,
-      category: "Frontend",
-    },
-    {
-      name: "Python",
-      icon: "🐍",
-      color: "from-blue-400 to-blue-600",
-      level: 80,
-      category: "Scripting",
-    },
-    {
-      name: "Java",
-      icon: "☕",
-      color: "from-red-600 to-red-800",
-      level: 65,
-      category: "Backend",
-    },
-    {
-      name: "C++",
-      icon: "🧰",
-      color: "from-red-500 to-red-700",
-      level: 50,
-      category: "Systems",
-    },
-    {
-      name: "C",
-      icon: "🔧",
-      color: "from-blue-600 to-blue-800",
-      level: 55,
-      category: "Systems",
-    },
-    {
-      name: "PHP",
-      icon: "🐘",
-      color: "from-purple-500 to-purple-700",
-      level: 60,
-      category: "Backend",
-    },
-    {
-      name: "HTML5",
-      icon: "🌐",
-      color: "from-orange-500 to-orange-700",
-      level: 95,
-      category: "Frontend",
-    },
-    {
-      name: "CSS3",
-      icon: "🎨",
-      color: "from-blue-400 to-blue-600",
-      level: 90,
-      category: "Frontend",
-    },
-    {
-      name: "Bash",
-      icon: "💻",
-      color: "from-gray-600 to-gray-800",
-      level: 70,
-      category: "Scripting",
-    },
-    {
-      name: "MATLAB",
-      icon: "🧮",
-      color: "from-red-400 to-red-600",
-      level: 60,
-      category: "Scientific",
-    },
-    {
-      name: "SQL",
-      icon: "📊",
-      color: "from-orange-400 to-orange-600",
-      level: 85,
-      category: "Database",
-    },
-
-    // Databases
-    {
-      name: "MySQL",
-      icon: "🐬",
-      color: "from-blue-500 to-blue-700",
-      level: 80,
-      category: "Database",
-    },
-    {
-      name: "PostgreSQL",
-      icon: "🐘",
-      color: "from-blue-600 to-blue-800",
-      level: 75,
-      category: "Database",
-    },
-    {
-      name: "MongoDB",
-      icon: "🍃",
-      color: "from-green-500 to-green-700",
-      level: 65,
-      category: "Database",
-    },
-
-    // Frameworks/Platforms/Libraries
-    {
-      name: "React",
-      icon: "⚛️",
-      color: "from-blue-300 to-blue-500",
-      level: 90,
-      category: "Frontend",
-    },
-    {
-      name: "React Vite",
-      icon: "⚡",
-      color: "from-purple-400 to-purple-600",
-      level: 85,
-      category: "Frontend",
-    },
-    {
-      name: "Next.js",
-      icon: "🚀",
-      color: "from-gray-700 to-gray-900",
-      level: 80,
-      category: "Frontend",
-    },
-    {
-      name: "Angular",
-      icon: "🅰️",
-      color: "from-red-500 to-red-700",
-      level: 60,
-      category: "Frontend",
-    },
-    {
-      name: "Firebase",
-      icon: "🔥",
-      color: "from-yellow-500 to-orange-600",
-      level: 70,
-      category: "Backend",
-    },
-    {
-      name: "Jupyter",
-      icon: "📓",
-      color: "from-orange-400 to-orange-600",
-      level: 80,
-      category: "Scientific",
-    },
-    {
-      name: "Django",
-      icon: "🎸",
-      color: "from-green-600 to-green-800",
-      level: 65,
-      category: "Backend",
-    },
-    {
-      name: "Anaconda",
-      icon: "🐍",
-      color: "from-green-500 to-green-700",
-      level: 75,
-      category: "Scientific",
-    },
-    {
-      name: "Bootstrap",
-      icon: "🅱️",
-      color: "from-purple-500 to-purple-700",
-      level: 80,
-      category: "Frontend",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: "🌊",
-      color: "from-cyan-400 to-cyan-600",
-      level: 90,
-      category: "Frontend",
+      name: "Flutter",
+      icon: SiFlutter,
+      url: "https://docs.flutter.dev/",
     },
     {
       name: "Node.js",
-      icon: "🟢",
-      color: "from-green-500 to-green-700",
-      level: 75,
-      category: "Backend",
+      icon: SiNodedotjs,
+      url: "https://nodejs.org/en/docs/",
     },
     {
-      name: "Express.js",
-      icon: "⚙️",
-      color: "from-gray-400 to-gray-600",
-      level: 70,
-      category: "Backend",
+      name: "Express",
+      icon: SiExpress,
+      url: "https://expressjs.com/en/4x/api.html",
     },
-
-    // DevOps/Tools
     {
-      name: "Jenkins",
-      icon: "🔧",
-      color: "from-blue-600 to-blue-800",
-      level: 50,
-      category: "DevOps",
+      name: "Laravel",
+      icon: SiLaravel,
+      url: "https://laravel.com/docs",
+    },
+    {
+      name: ".NET",
+      icon: SiDotnet,
+      url: "https://docs.microsoft.com/en-us/dotnet/",
+    },
+    {
+      name: "MongoDB",
+      icon: SiMongodb,
+      url: "https://docs.mongodb.com/",
+    },
+    {
+      name: "MySQL",
+      icon: SiMysql,
+      url: "https://dev.mysql.com/doc/",
+    },
+    {
+      name: "Firebase",
+      icon: SiFirebase,
+      url: "https://firebase.google.com/docs",
+    },
+    {
+      name: "JavaScript",
+      icon: SiJavascript,
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
+    {
+      name: "Java",
+      icon: FaJava,
+      url: "https://docs.oracle.com/en/java/",
+    },
+    {
+      name: "TypeScript",
+      icon: SiTypescript,
+      url: "https://www.typescriptlang.org/docs/",
+    },
+    {
+      name: "CSS3",
+      icon: SiCss3,
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    },
+    {
+      name: "PHP",
+      icon: SiPhp,
+      url: "https://www.php.net/docs.php",
+    },
+    {
+      name: "Python",
+      icon: SiPython,
+      url: "https://docs.python.org/3/",
+    },
+    {
+      name: "Flask",
+      icon: SiFlask,
+      url: "https://flask.palletsprojects.com/",
+    },
+    {
+      name: "Go",
+      icon: SiGo,
+      url: "https://golang.org/doc/",
+    },
+    {
+      name: "Postman",
+      icon: SiPostman,
+      url: "https://learning.postman.com/docs/",
     },
     {
       name: "Docker",
-      icon: "🐳",
-      color: "from-blue-400 to-blue-600",
-      level: 60,
-      category: "DevOps",
+      icon: SiDocker,
+      url: "https://docs.docker.com/",
     },
     {
-      name: "GitHub Actions",
-      icon: "⚡",
-      color: "from-gray-700 to-gray-900",
-      level: 65,
-      category: "DevOps",
+      name: "Git",
+      icon: SiGit,
+      url: "https://git-scm.com/doc",
     },
     {
-      name: "Ubuntu",
-      icon: "🐧",
-      color: "from-orange-500 to-orange-700",
-      level: 70,
-      category: "Systems",
+      name: "GitHub",
+      icon: SiGithub,
+      url: "https://docs.github.com/",
     },
     {
-      name: "Kali Linux",
-      icon: "🐉",
-      color: "from-purple-600 to-purple-800",
-      level: 55,
-      category: "Systems",
+      name: "Figma",
+      icon: SiFigma,
+      url: "https://help.figma.com/",
+    },
+    {
+      name: "Notion",
+      icon: SiNotion,
+      url: "https://www.notion.so/help",
+    },
+    {
+      name: "WordPress",
+      icon: SiWordpress,
+      url: "https://wordpress.org/support/",
+    },
+    {
+      name: "Jira",
+      icon: SiJira,
+      url: "https://support.atlassian.com/jira/",
+    },
+    {
+      name: "React",
+      icon: SiReact,
+      url: "https://react.dev/learn",
+    },
+    {
+      name: "Next.js",
+      icon: SiNextdotjs,
+      url: "https://nextjs.org/docs",
+    },
+    {
+      name: "Angular",
+      icon: SiAngular,
+      url: "https://angular.io/docs",
+    },
+    {
+      name: "Django",
+      icon: SiDjango,
+      url: "https://docs.djangoproject.com/",
+    },
+    {
+      name: "Bootstrap",
+      icon: SiBootstrap,
+      url: "https://getbootstrap.com/docs/",
+    },
+    {
+      name: "HTML5",
+      icon: SiHtml5,
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    },
+    {
+      name: "C++",
+      icon: SiCplusplus,
+      url: "https://en.cppreference.com/w/",
+    },
+    {
+      name: "C",
+      icon: SiC,
+      url: "https://en.cppreference.com/w/c",
+    },
+    {
+      name: "PostgreSQL",
+      icon: SiPostgresql,
+      url: "https://www.postgresql.org/docs/",
     },
   ];
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
-  const categories = [
-    "All",
-    "Frontend",
-    "Backend",
-    "Systems",
-    "Database",
-    "Scripting",
-    "Scientific",
-    "DevOps",
-  ];
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setVisibleItems((prev) => {
+        if (prev.length < programmingLanguages.length) {
+          return [...prev, prev.length];
+        }
+        return prev;
+      });
+    }, 80);
 
-  const filteredLanguages =
-    selectedCategory === "All"
-      ? programmingLanguages
-      : programmingLanguages.filter(
-          (lang) => lang.category === selectedCategory
-        );
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleSkillClick = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -944,132 +936,56 @@ export default function Portfolio() {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
 
-            {/* Programming Languages Bonus Section */}
-            <div className="mt-16">
-              <h2
-                className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
-              >
-                Programming Languages & Technologies
-              </h2>
-              <p className="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
-                A comprehensive overview of my technical skills and proficiency
-                levels across various programming languages and technologies.
-              </p>
+        {/* Skills Section */}
+        <section className="min-h-screen bg-black py-16">
+          <div className="container mx-auto px-4">
+            {/* Header - Just the title */}
+            <div className="text-center mb-12">
+              <h2 className="text-5xl font-bold text-blue-400">Skills</h2>
+            </div>
 
-              {/* Category Filter */}
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${
-                      selectedCategory === category
-                        ? "bg-gray-800 border-2"
-                        : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-600"
-                    }`}
-                    style={
-                      selectedCategory === category
-                        ? {
-                            borderImage: `linear-gradient(to right, ${theme.primary
-                              .replace("from-", "")
-                              .replace("to-", "")
-                              .replace(" ", ", ")}) 1`,
-                          }
-                        : {}
-                    }
-                  >
-                    <span
-                      className={
-                        selectedCategory === category
-                          ? `bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent font-bold`
-                          : ""
-                      }
-                    >
-                      {category}
-                    </span>
-                  </button>
-                ))}
-              </div>
+            {/* Skills Horizontal Line - Using real logos */}
+            <div className="flex items-center justify-center">
+              <div className="flex items-center gap-8 flex-wrap justify-center max-w-7xl">
+                {programmingLanguages.map((skill, index) => {
+                  const IconComponent = skill.icon;
+                  const isVisible = visibleItems.includes(index);
 
-              {/* Enhanced Languages Display */}
-              <div className="flex flex-wrap justify-center gap-4 mb-12">
-                {filteredLanguages.map((prog, index) => (
-                  <div key={index} className="group relative">
+                  return (
                     <div
-                      className={`px-6 py-3 bg-gradient-to-r ${prog.color} rounded-full text-white font-semibold text-sm hover:scale-110 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl flex items-center gap-2`}
+                      key={skill.name}
+                      className={`flex flex-col items-center cursor-pointer group transition-all duration-500 ease-out ${
+                        isVisible
+                          ? "translate-x-0 opacity-100"
+                          : "-translate-x-8 opacity-0"
+                      }`}
+                      style={{ transitionDelay: `${index * 60}ms` }}
+                      onClick={() => handleSkillClick(skill.url)}
                     >
-                      <span className="text-lg">{prog.icon}</span>
-                      {prog.name}
-                    </div>
-
-                    {/* Enhanced Tooltip */}
-                    <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-black/90 text-white text-xs px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-20">
-                      <div className="font-semibold">{prog.name}</div>
-                      <div className="text-gray-300">
-                        Proficiency: {prog.level}%
+                      {/* Real Logo Icon */}
+                      <div className="mb-2 p-3 transition-all duration-300 group-hover:scale-110">
+                        <IconComponent
+                          className="w-8 h-8 text-blue-400 transition-all duration-300 group-hover:drop-shadow-lg group-hover:text-blue-300"
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.filter =
+                              "brightness(1.1) drop-shadow(0 0 8px rgba(59, 130, 246, 0.5))";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.filter = "brightness(1)";
+                          }}
+                        />
                       </div>
-                      <div className="text-blue-300 text-xs">
-                        {prog.category}
-                      </div>
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-black/90"></div>
-                    </div>
 
-                    {/* Category Badge */}
-                    <div className="absolute -top-2 -right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-gray-600">
-                      {prog.category}
+                      {/* Label */}
+                      <span className="text-blue-400 text-sm font-medium group-hover:text-blue-300 transition-colors duration-300">
+                        {skill.name}
+                      </span>
                     </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Stats Summary */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                  <div className="text-2xl font-bold text-blue-400">
-                    {filteredLanguages.length}
-                  </div>
-                  <div className="text-sm text-gray-400">
-                    {selectedCategory === "All"
-                      ? "Total Languages"
-                      : `${selectedCategory} Skills`}
-                  </div>
-                </div>
-                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                  <div className="text-2xl font-bold text-green-400">
-                    {Math.round(
-                      filteredLanguages.reduce(
-                        (acc, lang) => acc + lang.level,
-                        0
-                      ) / filteredLanguages.length
-                    )}
-                    %
-                  </div>
-                  <div className="text-sm text-gray-400">
-                    Average Proficiency
-                  </div>
-                </div>
-                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                  <div className="text-2xl font-bold text-purple-400">
-                    {
-                      filteredLanguages.filter((lang) => lang.level >= 90)
-                        .length
-                    }
-                  </div>
-                  <div className="text-sm text-gray-400">Expert Level</div>
-                </div>
-                <div className="text-center p-4 bg-gray-800 rounded-lg border border-gray-700">
-                  <div className="text-2xl font-bold text-orange-400">
-                    {selectedCategory === "All"
-                      ? new Set(filteredLanguages.map((lang) => lang.category))
-                          .size
-                      : filteredLanguages.filter((lang) => lang.level >= 80)
-                          .length}
-                  </div>
-                  <div className="text-sm text-gray-400">
-                    {selectedCategory === "All" ? "Categories" : "Advanced+"}
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -1482,7 +1398,7 @@ export default function Portfolio() {
       active:bg-black focus:bg-black
       flex items-center gap-2
     `}
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.preventDefault();
                   window.open("https://wa.me/96171755803", "_blank");
                 }}
