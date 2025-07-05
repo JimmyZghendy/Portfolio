@@ -788,15 +788,6 @@ export default function Portfolio() {
                               </span>
                             ))}
                           </div>
-
-                          {/* Click indicator */}
-                          <div className="mt-4 text-center">
-                            <span className="text-xs text-blue-400/60 hover:text-blue-400 transition-colors">
-                              {activeCard === index
-                                ? "Click to collapse"
-                                : "Click to expand"}
-                            </span>
-                          </div>
                         </CardContent>
                       </Card>
                     </div>
