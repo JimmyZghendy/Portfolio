@@ -354,7 +354,7 @@ export default function Portfolio() {
     {
       title: "Bibline",
       description: "Reading App to all platform using react native",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/bibline.png",
       category: "Mobile App",
       technologies: ["React Native", "TypeScript", "Firebase"],
       features: [
@@ -362,9 +362,10 @@ export default function Portfolio() {
         "Integrated social features and community-driven book recommendations",
         "Advanced reading analytics and progress tracking",
       ],
+      link: "https://bibline.vercel.app/",
     },
     {
-      title: "CloudSync Pro",
+      title: "Job Application",
       description:
         "Scalable distributed system architecture for enterprise solutions",
       image: "/placeholder.svg?height=300&width=500",
@@ -377,7 +378,7 @@ export default function Portfolio() {
       ],
     },
     {
-      title: "VoteChain",
+      title: "BookLending",
       description:
         "Secure voting platform with smart contracts and blockchain technology",
       image: "/placeholder.svg?height=300&width=500",
@@ -1327,9 +1328,19 @@ export default function Portfolio() {
                               </div>
 
                               {/* View Project Button */}
-                              <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group-hover:scale-105 text-sm sm:text-base py-2 sm:py-2.5">
-                                <span className="mr-2">View Project</span>
-                                <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4" />
+                              <Button
+                                asChild
+                                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group-hover:scale-105 text-sm sm:text-base py-2 sm:py-2.5"
+                              >
+                                <a
+                                  href={project.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center justify-center"
+                                >
+                                  <span className="mr-2">View Project</span>
+                                  <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4" />
+                                </a>
                               </Button>
                             </CardContent>
                           </Card>
