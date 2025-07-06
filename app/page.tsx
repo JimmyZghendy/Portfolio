@@ -36,6 +36,8 @@ import {
   Box,
   Coffee,
   ExternalLink,
+  ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 import {
   SiJavascript,
@@ -350,25 +352,42 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "AI-Powered Analytics Dashboard",
-      description:
-        "Real-time data visualization with machine learning insights",
-      tech: ["React", "Python", "TensorFlow", "D3.js"],
-      gradient: "from-violet-600 to-indigo-600",
+      title: "Bibline",
+      description: "Reading App to all platform using react native",
+      image: "/placeholder.svg?height=300&width=500",
+      category: "Mobile App",
+      technologies: ["React Native", "TypeScript", "Firebase"],
+      features: [
+        "Cross-platform reading experience with seamless synchronization",
+        "Integrated social features and community-driven book recommendations",
+        "Advanced reading analytics and progress tracking",
+      ],
     },
     {
-      title: "Distributed Computing Platform",
+      title: "CloudSync Pro",
       description:
-        "Scalable microservices architecture for high-performance computing",
-      tech: ["Node.js", "Docker", "Kubernetes", "Redis"],
-      gradient: "from-emerald-600 to-teal-600",
+        "Scalable distributed system architecture for enterprise solutions",
+      image: "/placeholder.svg?height=300&width=500",
+      category: "Cloud Platform",
+      technologies: ["Node.js", "Docker", "Kubernetes", "AWS"],
+      features: [
+        "Auto-scaling infrastructure with intelligent load balancing",
+        "Real-time data synchronization across multiple regions",
+        "Enterprise-grade security with end-to-end encryption",
+      ],
     },
     {
-      title: "Blockchain Voting System",
+      title: "VoteChain",
       description:
-        "Secure and transparent voting platform using smart contracts",
-      tech: ["Solidity", "Web3.js", "React", "IPFS"],
-      gradient: "from-rose-600 to-pink-600",
+        "Secure voting platform with smart contracts and blockchain technology",
+      image: "/placeholder.svg?height=300&width=500",
+      category: "Blockchain",
+      technologies: ["Solidity", "Web3.js", "React", "Ethereum"],
+      features: [
+        "Transparent and immutable voting process",
+        "Multi-signature validation for enhanced security",
+        "Real-time vote counting and result verification",
+      ],
     },
   ];
 
@@ -436,6 +455,45 @@ export default function Portfolio() {
 
   const handleCardClick = (index: number) => {
     setActiveCard(activeCard === index ? null : index);
+  };
+  const [projectsPerPage, setProjectsPerPage] = useState(2);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const updateProjectsPerPage = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        setProjectsPerPage(1); // Mobile: 1 project
+      } else if (width < 1024) {
+        setProjectsPerPage(1); // Tablet: 1 project
+      } else if (width < 1280) {
+        setProjectsPerPage(2); // Desktop: 2 projects
+      } else {
+        setProjectsPerPage(2); // Large desktop: 2 projects
+      }
+    };
+
+    updateProjectsPerPage();
+    window.addEventListener("resize", updateProjectsPerPage);
+    return () => window.removeEventListener("resize", updateProjectsPerPage);
+  }, []);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [projectsPerPage]);
+
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const currentProjects = projects.slice(
+    currentIndex * projectsPerPage,
+    (currentIndex + 1) * projectsPerPage
+  );
+
+  const nextProjects = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevProjects = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
   return (
@@ -1173,99 +1231,163 @@ export default function Portfolio() {
             </div>
                       */}
             {/* Project Timeline Visualization */}
-            <div className="mb-16">
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
-                Project Timeline
-              </h3>
-              <div className="relative">
-                {/* Timeline Line */}
-                <div
-                  className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b ${theme.primary} opacity-30`}
-                ></div>
+            <div className="min-h-screen bg-gray-900 py-8 sm:py-12 lg:py-16 px-2 sm:px-4 lg:px-6">
+              <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-400 mb-3 sm:mb-4 lg:mb-6">
+                    Projects
+                  </h2>
+                  <div className="w-16 sm:w-20 lg:w-24 h-0.5 sm:h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto"></div>
+                </div>
 
-                <div className="space-y-12">
-                  {[
-                    {
-                      year: "2025",
-                      title: "Bibline",
-                      description:
-                        "Reading App to all platform using react native",
-                      position: "left",
-                      color: "from-purple-500 to-pink-500",
-                    },
-                    {
-                      year: "2024",
-                      title: "Soon",
-                      description: "Scalable distributed system architecture",
-                      position: "right",
-                      color: "from-blue-500 to-cyan-500",
-                    },
-                    {
-                      year: "2022",
-                      title: "Soon",
-                      description:
-                        "Secure voting platform with smart contracts",
-                      position: "left",
-                      color: "from-green-500 to-emerald-500",
-                    },
-                    {
-                      year: "2021",
-                      title: "Soon",
-                      description: "Cross-platform financial application",
-                      position: "right",
-                      color: "from-orange-500 to-red-500",
-                    },
-                  ].map((project, index) => (
+                {/* Projects Carousel */}
+                <div className="relative mb-8 sm:mb-10 lg:mb-12">
+                  <div className="overflow-hidden">
                     <div
-                      key={index}
-                      className={`flex items-center ${
-                        project.position === "right" ? "flex-row-reverse" : ""
-                      }`}
+                      className="flex transition-transform duration-500 ease-in-out gap-4 sm:gap-6 lg:gap-8"
+                      style={{ transform: `translateX(0%)` }}
                     >
-                      <div
-                        className={`w-1/2 ${
-                          project.position === "right" ? "pl-8" : "pr-8"
-                        }`}
-                      >
-                        <Card className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 group">
-                          <div
-                            className={`h-1 bg-gradient-to-r ${project.color}`}
-                          />
-                          <CardContent className="p-6">
-                            <div className="flex items-center mb-3">
-                              <div
-                                className={`w-3 h-3 rounded-full bg-gradient-to-r ${project.color} mr-3 group-hover:animate-pulse`}
-                              ></div>
-                              <span
-                                className={`text-lg font-bold text-${theme.highlight}`}
-                              >
-                                {project.year}
-                              </span>
-                            </div>
-                            <h4 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                              {project.title}
-                            </h4>
-                            <p className="text-gray-400">
-                              {project.description}
-                            </p>
-                          </CardContent>
-                        </Card>
-                      </div>
-
-                      {/* Timeline Node */}
-                      <div className="relative z-10">
+                      {currentProjects.map((project, index) => (
                         <div
-                          className={`w-6 h-6 rounded-full bg-gradient-to-r ${project.color} border-4 border-black shadow-lg hover:scale-125 transition-transform duration-300`}
-                        ></div>
-                      </div>
+                          key={currentIndex * projectsPerPage + index}
+                          className={`w-full flex-shrink-0 ${
+                            projectsPerPage === 1
+                              ? "max-w-full"
+                              : "sm:w-full lg:w-1/2"
+                          }`}
+                        >
+                          <Card className="bg-gray-800/50 border-gray-700/50 hover:bg-gray-800/70 transition-all duration-500 hover:scale-[1.01] sm:hover:scale-[1.02] group backdrop-blur-sm overflow-hidden h-full">
+                            {/* Project Image */}
+                            <div className="relative overflow-hidden">
+                              <img
+                                src={project.image || "/placeholder.svg"}
+                                alt={project.title}
+                                className="w-full h-48 sm:h-56 md:h-64 lg:h-72 object-cover group-hover:scale-110 transition-transform duration-700"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                              <div className="absolute top-2 sm:top-3 lg:top-4 left-2 sm:left-3 lg:left-4">
+                                <span className="bg-blue-500/90 backdrop-blur-sm text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                                  {project.category}
+                                </span>
+                              </div>
+                              <div className="absolute top-2 sm:top-3 lg:top-4 right-2 sm:right-3 lg:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
+                              </div>
+                            </div>
 
-                      <div className="w-1/2"></div>
+                            <CardContent className="p-3 sm:p-4 lg:p-6">
+                              {/* Title */}
+                              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors duration-300 line-clamp-1">
+                                {project.title}
+                              </h3>
+
+                              {/* Description */}
+                              <p className="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base line-clamp-2">
+                                {project.description}
+                              </p>
+
+                              {/* Features */}
+                              <ul className="space-y-1 sm:space-y-2 mb-4 sm:mb-6">
+                                {project.features
+                                  .slice(0, projectsPerPage === 1 ? 3 : 2)
+                                  .map((feature, featureIndex) => (
+                                    <li
+                                      key={featureIndex}
+                                      className="flex items-start text-gray-400 text-xs sm:text-sm"
+                                    >
+                                      <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-blue-500 mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                                      <span className="line-clamp-1">
+                                        {feature}
+                                      </span>
+                                    </li>
+                                  ))}
+                              </ul>
+
+                              {/* Technologies */}
+                              <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
+                                {project.technologies
+                                  .slice(0, projectsPerPage === 1 ? 4 : 3)
+                                  .map((tech, techIndex) => (
+                                    <span
+                                      key={techIndex}
+                                      className="bg-blue-500/20 text-blue-300 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border border-blue-500/30 hover:bg-blue-500/30 transition-colors duration-200"
+                                    >
+                                      {tech}
+                                    </span>
+                                  ))}
+                                {project.technologies.length >
+                                  (projectsPerPage === 1 ? 4 : 3) && (
+                                  <span className="bg-gray-600/20 text-gray-400 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border border-gray-600/30">
+                                    +
+                                    {project.technologies.length -
+                                      (projectsPerPage === 1 ? 4 : 3)}
+                                  </span>
+                                )}
+                              </div>
+
+                              {/* View Project Button */}
+                              <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 group-hover:scale-105 text-sm sm:text-base py-2 sm:py-2.5">
+                                <span className="mr-2">View Project</span>
+                                <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4" />
+                              </Button>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                </div>
+
+                {/* Navigation */}
+                <div className="flex justify-center items-center space-x-3 sm:space-x-4">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={prevProjects}
+                    className="border-blue-500/30 text-blue-400 hover:bg-blue-500/20 hover:border-blue-400 bg-gray-800/50 backdrop-blur-sm hover:scale-110 transition-all duration-300 w-8 h-8 sm:w-10 sm:h-10"
+                  >
+                    <ChevronLeft className="h-3 sm:h-4 lg:h-5 w-3 sm:w-4 lg:w-5" />
+                  </Button>
+
+                  {/* Page Indicators */}
+                  <div className="flex space-x-1.5 sm:space-x-2">
+                    {Array.from({ length: totalPages }).map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                          index === currentIndex
+                            ? "bg-blue-500 scale-125"
+                            : "bg-gray-600 hover:bg-gray-500"
+                        }`}
+                      />
+                    ))}
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={nextProjects}
+                    className="border-blue-500/30 text-blue-400 hover:bg-blue-500/20 hover:border-blue-400 bg-gray-800/50 backdrop-blur-sm hover:scale-110 transition-all duration-300 w-8 h-8 sm:w-10 sm:h-10"
+                  >
+                    <ChevronRight className="h-3 sm:h-4 lg:h-5 w-3 sm:w-4 lg:w-5" />
+                  </Button>
+                </div>
+
+                {/* Project Counter */}
+                <div className="text-center mt-4 sm:mt-6">
+                  <span className="text-gray-400 text-xs sm:text-sm">
+                    Showing {currentIndex * projectsPerPage + 1}-
+                    {Math.min(
+                      (currentIndex + 1) * projectsPerPage,
+                      projects.length
+                    )}{" "}
+                    of {projects.length} projects
+                  </span>
                 </div>
               </div>
             </div>
-
             {/* Skills Radar Chart Visualization */}
             <div>
               <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
