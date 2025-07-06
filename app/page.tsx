@@ -38,6 +38,7 @@ import {
   ExternalLink,
   ChevronRight,
   ChevronLeft,
+  Navigation,
 } from "lucide-react";
 import {
   SiJavascript,
@@ -353,14 +354,14 @@ export default function Portfolio() {
   const projects = [
     {
       title: "Bibline",
-      description: "Reading App to all platform using react native",
+      description: "Bible Reader Online App 📖",
       image: "/bibline.png",
       category: "Mobile App",
-      technologies: ["React Native", "TypeScript", "Firebase"],
+      technologies: ["React Native", "TypeScript", "Expo", "Json"],
       features: [
-        "Cross-platform reading experience with seamless synchronization",
-        "Integrated social features and community-driven book recommendations",
-        "Advanced reading analytics and progress tracking",
+        "Users can easily explore Scripture by filtering books, chapters, keywords, individual verses, or custom verse ranges (e.g., Genesis 1:5-16).",
+        "The app supports multiple languages, currently offering Arabic (ar), English (en), and French (fr) translations to accommodate diverse users.",
+        "Includes light and dark mode options, allowing users to personalize their reading environment for comfort and optimal visibility.",
       ],
       link: "https://bibline.vercel.app/",
     },
