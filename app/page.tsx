@@ -136,11 +136,6 @@ export default function Portfolio() {
       url: "https://tailwindcss.com/docs",
     },
     {
-      name: "Flutter",
-      icon: SiFlutter,
-      url: "https://docs.flutter.dev/",
-    },
-    {
       name: "Node.js",
       icon: SiNodedotjs,
       url: "https://nodejs.org/en/docs/",
@@ -149,11 +144,6 @@ export default function Portfolio() {
       name: "Express",
       icon: SiExpress,
       url: "https://expressjs.com/en/4x/api.html",
-    },
-    {
-      name: "Laravel",
-      icon: SiLaravel,
-      url: "https://laravel.com/docs",
     },
     {
       name: ".NET",
@@ -206,21 +196,6 @@ export default function Portfolio() {
       url: "https://docs.python.org/3/",
     },
     {
-      name: "Flask",
-      icon: SiFlask,
-      url: "https://flask.palletsprojects.com/",
-    },
-    {
-      name: "Go",
-      icon: SiGo,
-      url: "https://golang.org/doc/",
-    },
-    {
-      name: "Postman",
-      icon: SiPostman,
-      url: "https://learning.postman.com/docs/",
-    },
-    {
       name: "Docker",
       icon: SiDocker,
       url: "https://docs.docker.com/",
@@ -241,19 +216,9 @@ export default function Portfolio() {
       url: "https://help.figma.com/",
     },
     {
-      name: "Notion",
-      icon: SiNotion,
-      url: "https://www.notion.so/help",
-    },
-    {
       name: "WordPress",
       icon: SiWordpress,
       url: "https://wordpress.org/support/",
-    },
-    {
-      name: "Jira",
-      icon: SiJira,
-      url: "https://support.atlassian.com/jira/",
     },
     {
       name: "React",
