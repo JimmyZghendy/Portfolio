@@ -41,6 +41,8 @@ import {
   Navigation,
   Star,
   BarChart3,
+  Smartphone,
+  Lock,
 } from "lucide-react";
 import {
   SiJavascript,
@@ -340,24 +342,44 @@ export default function Portfolio() {
 
   const skills = [
     {
-      icon: Code,
       name: "Frontend Development",
-      color: "from-blue-500 to-cyan-500",
+      icon: Code,
+      color: "from-blue-400 to-blue-600",
     },
     {
+      name: "Backend Development",
+      icon: Server,
+      color: "from-blue-500 to-blue-700",
+    },
+    {
+      name: "Database Management",
       icon: Database,
-      name: "Backend Systems",
-      color: "from-purple-500 to-pink-500",
+      color: "from-blue-600 to-blue-800",
     },
     {
-      icon: Cpu,
-      name: "Machine Learning",
-      color: "from-green-500 to-emerald-500",
+      name: "Web Development",
+      icon: Globe,
+      color: "from-blue-400 to-blue-600",
     },
     {
-      icon: Zap,
-      name: "Performance Optimization",
-      color: "from-orange-500 to-red-500",
+      name: "Mobile Development",
+      icon: Smartphone,
+      color: "from-blue-500 to-blue-700",
+    },
+    {
+      name: "UI/UX Design",
+      icon: Palette,
+      color: "from-blue-600 to-blue-800",
+    },
+    {
+      name: "Cyber Security",
+      icon: Shield,
+      color: "from-blue-700 to-blue-900",
+    },
+    {
+      name: "Data Security",
+      icon: Lock,
+      color: "from-blue-500 to-blue-700",
     },
   ];
 
@@ -648,35 +670,34 @@ export default function Portfolio() {
           </div>
         </section>
         {/* Skills Section */}
-        <section id="skills" className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2
-              className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
-            >
-              Core Expertise
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {skills.map((skill, index) => (
-                <Card
-                  key={index}
-                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group"
-                >
-                  <CardContent className="p-6 text-center">
-                    <div
-                      className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${skill.color} flex items-center justify-center group-hover:animate-spin transition-all duration-500`}
-                    >
-                      <skill.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">
-                      {skill.name}
-                    </h3>
-                  </CardContent>
-                </Card>
-              ))}
+        <div className="min-h-screen">
+          <section id="skills" className="py-20 px-6">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                Core Expertise
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {skills.map((skill, index) => (
+                  <Card
+                    key={index}
+                    className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group"
+                  >
+                    <CardContent className="p-6 text-center">
+                      <div
+                        className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${skill.color} flex items-center justify-center group-hover:animate-spin transition-all duration-500`}
+                      >
+                        <skill.icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-white mb-2">
+                        {skill.name}
+                      </h3>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
         {/* Experience Section */}
         <section
           ref={sectionRef}
