@@ -590,12 +590,10 @@ export default function Portfolio() {
             <div className="mb-8">
               {/* Profile Image */}
               <div className="mb-8 flex justify-center">
-                <div
-                  className={`relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-gradient-to-r ${theme.primary} p-1 bg-gradient-to-r ${theme.primary} animate-pulse`}
-                >
-                  <div className="w-full h-full rounded-full overflow-hidden bg-black">
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-blue-500 p-1">
+                  <div className="w-full h-full rounded-full overflow-hidden">
                     <img
-                      src="/JimmyPhoto.jpg?height=160&width=160"
+                      src="/JimmyPhoto.jpg"
                       alt="Jimmy Zghendy Profile"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                     />
@@ -604,27 +602,28 @@ export default function Portfolio() {
               </div>
 
               {/* Added "Let's build something together" */}
-              <h2 className="text-xl md:text-2xl text-gray-400 mb-2 animate-fade-in uppercase tracking-wider">
+              <h2 className="text-xl md:text-2xl text-blue-400 mb-2 animate-fade-in uppercase tracking-wider">
                 LET'S BUILD SOMETHING TOGETHER
               </h2>
 
-              <h1
-                className={`text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent animate-pulse`}
-              >
+              <h1 className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 Jimmy Zghendy
               </h1>
-              <div className="text-xl md:text-2xl text-gray-300 mb-6">
+
+              <div className="text-xl md:text-2xl text-blue-300 mb-6">
                 <span className="inline-block animate-bounce">
                   Computer Science Engineer
                 </span>
               </div>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+
+              <p className="text-lg text-blue-200 max-w-2xl mx-auto leading-relaxed">
                 Passionate about cybersecurity, artificial intelligence, and
                 software development. Currently pursuing M1 in Computer Science,
                 exploring the intersection of security, AI algorithms, and
                 innovative coding solutions to build a safer digital future.
               </p>
             </div>
+
             <div className="flex flex-wrap justify-center px-1 gap-4 mb-12 max-w-md mx-auto">
               {[
                 { Icon: Github, url: "https://github.com/JimmyZghendy" },
@@ -639,16 +638,13 @@ export default function Portfolio() {
                   key={index}
                   variant="outline"
                   size="lg"
-                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-300 hover:scale-110 text-white hover:text-white"
+                  className="bg-blue-500/20 border border-blue-500/20 hover:bg-blue-500/30 hover:border-blue-400 transition-all duration-300 hover:scale-110 text-blue-400 hover:text-blue-300"
                   onClick={() => window.open(url, "_blank")}
                 >
                   <Icon className="w-5 h-5" />
                 </Button>
               ))}
             </div>
-            <ChevronDown
-              className={`w-8 h-8 mx-auto animate-bounce text-${theme.highlight}`}
-            />
           </div>
         </section>
         {/* Skills Section */}
@@ -1447,8 +1443,8 @@ export default function Portfolio() {
                   {"Let's Build Something Amazing"}
                 </h2>
                 <p className="text-xl text-gray-400 mb-12 leading-relaxed">
-                  Ready to collaborate on your next innovative project?
-                  {"Let's"} discuss how we can bring your ideas to life.
+                  Ready to collaborate on your next innovative project? Let's
+                  discuss how we can bring your ideas to life.
                 </p>
                 <div className="flex justify-center">
                   <Button
