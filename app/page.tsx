@@ -39,6 +39,8 @@ import {
   ChevronRight,
   ChevronLeft,
   Navigation,
+  Star,
+  BarChart3,
 } from "lucide-react";
 import {
   SiJavascript,
@@ -79,6 +81,11 @@ import { FaJava } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+const handleSkillClick = (url: string) => {
+  if (url !== "#") {
+    window.open(url, "_blank");
+  }
+};
 
 // Simple JZ component
 const JZ = () => <span>&lt;JZ/&gt;</span>;
@@ -271,6 +278,9 @@ export default function Portfolio() {
   ];
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
 
+  // Duplicate the skills array for seamless infinite scroll
+  const duplicatedSkills = [...programmingLanguages, ...programmingLanguages];
+
   useEffect(() => {
     const timer = setInterval(() => {
       setVisibleItems((prev) => {
@@ -367,7 +377,7 @@ export default function Portfolio() {
     },
     {
       title: "Job Application",
-      description: "Job Application System 🏢👥",
+      description: "Job Application System 📋✍️",
       image: "/job.png",
       category: "Web-Based Application Systems",
       technologies: ["Node.js", "JavaScript", "MongoDB", "Mongoose"],
@@ -965,37 +975,31 @@ export default function Portfolio() {
         </section>
 
         {/* Skills Section */}
-        <section className="min-h-screen bg-black py-16">
+        <section className="bg-black py-8 overflow-hidden">
           <div className="container mx-auto px-4">
-            {/* Header - Just the title */}
-            <div className="text-center mb-12">
+            {/* Header */}
+            <div className="text-center mb-6">
               <h2 className="text-5xl font-bold text-blue-400">Skills</h2>
             </div>
 
-            {/* Skills Horizontal Line - Using real logos */}
-            <div className="flex items-center justify-center">
-              <div className="flex items-center gap-8 flex-wrap justify-center max-w-7xl">
-                {programmingLanguages.map((skill, index) => {
+            {/* Scrolling Skills Container */}
+            <div className="relative">
+              <div className="flex animate-scroll-left">
+                {duplicatedSkills.map((skill, index) => {
                   const IconComponent = skill.icon as React.ComponentType<{
                     className?: string;
                     style?: React.CSSProperties;
                     onMouseEnter?: (e: React.MouseEvent<SVGElement>) => void;
                     onMouseLeave?: (e: React.MouseEvent<SVGElement>) => void;
                   }>;
-                  const isVisible = visibleItems.includes(index);
 
                   return (
                     <div
-                      key={skill.name}
-                      className={`flex flex-col items-center cursor-pointer group transition-all duration-500 ease-out ${
-                        isVisible
-                          ? "translate-x-0 opacity-100"
-                          : "-translate-x-8 opacity-0"
-                      }`}
-                      style={{ transitionDelay: `${index * 60}ms` }}
+                      key={`${skill.name}-${index}`}
+                      className="flex flex-col items-center cursor-pointer group transition-all duration-300 mx-2 flex-shrink-0"
                       onClick={() => handleSkillClick(skill.url)}
                     >
-                      {/* Real Logo Icon */}
+                      {/* Icon */}
                       <div className="mb-2 p-3 transition-all duration-300 group-hover:scale-110">
                         <IconComponent
                           className="w-8 h-8 text-blue-400 transition-all duration-300 group-hover:drop-shadow-lg group-hover:text-blue-300"
@@ -1008,9 +1012,8 @@ export default function Portfolio() {
                           }}
                         />
                       </div>
-
                       {/* Label */}
-                      <span className="text-blue-400 text-sm font-medium group-hover:text-blue-300 transition-colors duration-300">
+                      <span className="text-blue-400 text-sm font-medium group-hover:text-blue-300 transition-colors duration-300 whitespace-nowrap">
                         {skill.name}
                       </span>
                     </div>
@@ -1019,8 +1022,47 @@ export default function Portfolio() {
               </div>
             </div>
           </div>
-        </section>
 
+          <style>{`
+            @keyframes scroll-left {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+
+            .animate-scroll-left {
+              animation: scroll-left 15s linear infinite;
+            }
+
+            .animate-scroll-left:hover {
+              animation-play-state: paused;
+            }
+
+            /* Mobile - Very fast */
+            @media (max-width: 640px) {
+              .animate-scroll-left {
+                animation: scroll-left 4s linear infinite;
+              }
+            }
+
+            /* Tablet - Fast */
+            @media (min-width: 641px) and (max-width: 1024px) {
+              .animate-scroll-left {
+                animation: scroll-left 8s linear infinite;
+              }
+            }
+
+            /* Desktop - Normal speed */
+            @media (min-width: 1025px) {
+              .animate-scroll-left {
+                animation: scroll-left 10s linear infinite;
+              }
+            }
+          `}</style>
+        </section>
         {/* 
         // Projects Section 
         <section id="projects" className="py-20 px-6">
@@ -1065,59 +1107,62 @@ export default function Portfolio() {
         {/* Visualization Section */}
         <section id="visualization" className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2
+            {/*  <h2
               className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r ${theme.primary} bg-clip-text text-transparent`}
             >
               Project Visualizations
             </h2>
 
-            {/* Stats Overview */}
+            {/* Stats Overview 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
               {[
                 {
                   label: "Projects Completed",
                   value: "25+",
-                  icon: "📊",
+                  icon: BarChart3,
                   color: "from-blue-500 to-cyan-500",
                 },
                 {
                   label: "Technologies Used",
                   value: "15+",
-                  icon: "⚡",
+                  icon: Zap,
                   color: "from-purple-500 to-pink-500",
                 },
                 {
                   label: "Years Experience",
                   value: "5+",
-                  icon: "🚀",
+                  icon: Rocket,
                   color: "from-green-500 to-emerald-500",
                 },
                 {
                   label: "Client Satisfaction",
                   value: "98%",
-                  icon: "⭐",
+                  icon: Star,
                   color: "from-orange-500 to-red-500",
                 },
-              ].map((stat, index) => (
-                <Card
-                  key={index}
-                  className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group text-center"
-                >
-                  <CardContent className="p-6">
-                    <div className="text-4xl mb-3 group-hover:animate-bounce transition-all duration-300">
-                      {stat.icon}
-                    </div>
-                    <div
-                      className={`text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}
-                    >
-                      {stat.value}
-                    </div>
-                    <p className="text-gray-400 text-sm">{stat.label}</p>
-                  </CardContent>
-                </Card>
-              ))}
+              ].map((stat, index) => {
+                const IconComponent = stat.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="bg-gray-900/50 backdrop-blur-sm border border-blue-500/20 hover:bg-gray-900/70 transition-all duration-500 hover:scale-105 group text-center"
+                  >
+                    <CardContent className="p-6">
+                      <div className="mb-3 group-hover:animate-bounce transition-all duration-300 flex justify-center">
+                        <IconComponent className="w-10 h-10 text-blue-400" />
+                      </div>
+                      <div
+                        className={`text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}
+                      >
+                        {stat.value}
+                      </div>
+                      <p className="text-gray-400 text-sm">{stat.label}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
-
+            */}
             {/* 
             // Technology Stack Visualization 
             <div className="mb-16">
