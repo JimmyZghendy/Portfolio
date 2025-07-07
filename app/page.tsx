@@ -359,24 +359,24 @@ export default function Portfolio() {
       category: "Mobile App",
       technologies: ["React Native", "TypeScript", "Expo", "Json"],
       features: [
-        "Users can easily explore Scripture by filtering books, chapters, keywords, individual verses, or custom verse ranges (e.g., Genesis 1:5-16).",
-        "The app supports multiple languages, currently offering Arabic (ar), English (en), and French (fr) translations to accommodate diverse users.",
-        "Includes light and dark mode options, allowing users to personalize their reading environment for comfort and optimal visibility.",
+        "Explore by filtering books, chapters, keywords, individual verses, or custom verse ranges",
+        "The app supports multiple languages, (ar), (en), and (fr)",
+        "Includes light and dark mode options.",
       ],
       link: "https://bibline.vercel.app/",
     },
     {
       title: "Job Application",
-      description:
-        "Scalable distributed system architecture for enterprise solutions",
-      image: "/placeholder.svg?height=300&width=500",
-      category: "Cloud Platform",
-      technologies: ["Node.js", "Docker", "Kubernetes", "AWS"],
+      description: "Job Application System",
+      image: "/job.png",
+      category: "Web-Based Application Systems",
+      technologies: ["Node.js", "JavaScript", "MongoDB", "Mongoose"],
       features: [
-        "Auto-scaling infrastructure with intelligent load balancing",
-        "Real-time data synchronization across multiple regions",
-        "Enterprise-grade security with end-to-end encryption",
+        "Search and apply to jobs with one-click submissions",
+        "Create and manage job postings with rich descriptions",
+        "Upload resumes/CVs and auto-fill application forms",
       ],
+      link: "https://job-application-frontend-bay.vercel.app/",
     },
     {
       title: "BookLending",
@@ -1291,9 +1291,8 @@ export default function Portfolio() {
 
                               {/* Features */}
                               <ul className="space-y-1 sm:space-y-2 mb-4 sm:mb-6">
-                                {project.features
-                                  .slice(0, projectsPerPage === 1 ? 3 : 2)
-                                  .map((feature, featureIndex) => (
+                                {project.features.map(
+                                  (feature, featureIndex) => (
                                     <li
                                       key={featureIndex}
                                       className="flex items-start text-gray-400 text-xs sm:text-sm"
@@ -1303,29 +1302,20 @@ export default function Portfolio() {
                                         {feature}
                                       </span>
                                     </li>
-                                  ))}
+                                  )
+                                )}
                               </ul>
 
                               {/* Technologies */}
                               <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
-                                {project.technologies
-                                  .slice(0, projectsPerPage === 1 ? 4 : 3)
-                                  .map((tech, techIndex) => (
-                                    <span
-                                      key={techIndex}
-                                      className="bg-blue-500/20 text-blue-300 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border border-blue-500/30 hover:bg-blue-500/30 transition-colors duration-200"
-                                    >
-                                      {tech}
-                                    </span>
-                                  ))}
-                                {project.technologies.length >
-                                  (projectsPerPage === 1 ? 4 : 3) && (
-                                  <span className="bg-gray-600/20 text-gray-400 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border border-gray-600/30">
-                                    +
-                                    {project.technologies.length -
-                                      (projectsPerPage === 1 ? 4 : 3)}
+                                {project.technologies.map((tech, techIndex) => (
+                                  <span
+                                    key={techIndex}
+                                    className="bg-blue-500/20 text-blue-300 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border border-blue-500/30 hover:bg-blue-500/30 transition-colors duration-200"
+                                  >
+                                    {tech}
                                   </span>
-                                )}
+                                ))}
                               </div>
 
                               {/* View Project Button */}
@@ -1398,79 +1388,6 @@ export default function Portfolio() {
                     of {projects.length} projects
                   </span>
                 </div>
-              </div>
-            </div>
-            {/* Skills Radar Chart Visualization */}
-            <div>
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
-                Skills Assessment
-              </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {[
-                  {
-                    category: "Development",
-                    skills: [
-                      { name: "Frontend", level: 95 },
-                      { name: "Backend", level: 90 },
-                      { name: "Mobile", level: 80 },
-                      { name: "DevOps", level: 75 },
-                    ],
-                    color: "from-blue-500 to-cyan-500",
-                  },
-                  {
-                    category: "Data & AI",
-                    skills: [
-                      { name: "Machine Learning", level: 85 },
-                      { name: "Data Analysis", level: 88 },
-                      { name: "Deep Learning", level: 75 },
-                      { name: "Computer Vision", level: 70 },
-                    ],
-                    color: "from-purple-500 to-pink-500",
-                  },
-                  {
-                    category: "Architecture",
-                    skills: [
-                      { name: "System Design", level: 90 },
-                      { name: "Microservices", level: 85 },
-                      { name: "Cloud Computing", level: 88 },
-                      { name: "Security", level: 80 },
-                    ],
-                    color: "from-green-500 to-emerald-500",
-                  },
-                ].map((category, index) => (
-                  <Card
-                    key={index}
-                    className="bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 group"
-                  >
-                    <CardContent className="p-6">
-                      <h4
-                        className={`text-xl font-bold mb-6 text-center bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
-                      >
-                        {category.category}
-                      </h4>
-                      <div className="space-y-4">
-                        {category.skills.map((skill, skillIndex) => (
-                          <div key={skillIndex} className="group/skill">
-                            <div className="flex justify-between mb-2">
-                              <span className="text-white font-medium text-sm">
-                                {skill.name}
-                              </span>
-                              <span className="text-gray-400 text-sm">
-                                {skill.level}%
-                              </span>
-                            </div>
-                            <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
-                              <div
-                                className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-1000 ease-out group-hover/skill:animate-pulse`}
-                                style={{ width: `${skill.level}%` }}
-                              />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
               </div>
             </div>
           </div>
