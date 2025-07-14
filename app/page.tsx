@@ -1062,7 +1062,7 @@ export default function Portfolio() {
             /* Mobile - Faster */
             @media (max-width: 640px) {
               .animate-scroll-seamless {
-                animation: scroll-seamless 10s linear infinite;
+                animation: scroll-seamless 11s linear infinite;
               }
             }
 
@@ -1076,7 +1076,7 @@ export default function Portfolio() {
             /* Desktop - Normal speed */
             @media (min-width: 1025px) {
               .animate-scroll-seamless {
-                animation: scroll-seamless 20s linear infinite;
+                animation: scroll-seamless 25s linear infinite;
               }
             }
           `}</style>
