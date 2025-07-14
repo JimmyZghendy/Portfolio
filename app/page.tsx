@@ -1001,7 +1001,7 @@ export default function Portfolio() {
 
             {/* Scrolling Skills Container */}
             <div className="relative">
-              <div className="flex animate-scroll-left">
+              <div className="flex animate-scroll-seamless">
                 {duplicatedSkills.map((skill, index) => {
                   const IconComponent = skill.icon as React.ComponentType<{
                     className?: string;
@@ -1013,7 +1013,7 @@ export default function Portfolio() {
                   return (
                     <div
                       key={`${skill.name}-${index}`}
-                      className="flex flex-col items-center cursor-pointer group transition-all duration-300 mx-2 flex-shrink-0"
+                      className="flex flex-col items-center cursor-pointer group transition-all duration-300 flex-shrink-0 px-3"
                       onClick={() => handleSkillClick(skill.url)}
                     >
                       {/* Icon */}
@@ -1041,45 +1041,47 @@ export default function Portfolio() {
           </div>
 
           <style>{`
-            @keyframes scroll-left {
+            @keyframes scroll-seamless {
               0% {
-                transform: translateX(0);
+                transform: translateX(0%);
               }
               100% {
                 transform: translateX(-50%);
               }
             }
 
-            .animate-scroll-left {
-              animation: scroll-left 20s linear infinite;
+            .animate-scroll-seamless {
+              animation: scroll-seamless 20s linear infinite;
+              width: max-content;
             }
 
-            .animate-scroll-left:hover {
+            .animate-scroll-seamless:hover {
               animation-play-state: paused;
             }
 
-            /* Mobile - Very fast */
+            /* Mobile - Faster */
             @media (max-width: 640px) {
-              .animate-scroll-left {
-                animation: scroll-left 4s linear infinite;
+              .animate-scroll-seamless {
+                animation: scroll-seamless 10s linear infinite;
               }
             }
 
-            /* Tablet - Fast */
+            /* Tablet - Medium speed */
             @media (min-width: 641px) and (max-width: 1024px) {
-              .animate-scroll-left {
-                animation: scroll-left 8s linear infinite;
+              .animate-scroll-seamless {
+                animation: scroll-seamless 15s linear infinite;
               }
             }
 
             /* Desktop - Normal speed */
             @media (min-width: 1025px) {
-              .animate-scroll-left {
-                animation: scroll-left 10s linear infinite;
+              .animate-scroll-seamless {
+                animation: scroll-seamless 20s linear infinite;
               }
             }
           `}</style>
         </section>
+
         {/* 
         // Projects Section 
         <section id="projects" className="py-20 px-6">
