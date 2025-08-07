@@ -854,11 +854,10 @@ export default function Portfolio() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 {
-                  degree: "Master of Science in Computer Science",
-                  school: "Lebanese University",
-                  period: "2024 - 2025",
-                  focus:
-                    "Cybersecurity & Artificial Intelligence & Machine Learning",
+                  degree: "Master of Science in Cybersecurity",
+                  school: "Lebanese University - Faculty of Science",
+                  period: "2024 - 2026",
+                  focus: "Cybersecurity & Artificial Intelligence",
                   achievements: [
                     "Network Security",
                     "Cryptography",
@@ -873,7 +872,7 @@ export default function Portfolio() {
                 },
                 {
                   degree: "Bachelor of Science in Applied Mathematics",
-                  school: "Lebanese University",
+                  school: "Lebanese University - Faculty of Science",
                   period: "2020 - 2024",
                   focus: "Software Engineering & Systems",
                   achievements: [
