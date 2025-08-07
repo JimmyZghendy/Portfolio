@@ -640,7 +640,7 @@ export default function Portfolio() {
 
               <p className="text-lg text-blue-200 max-w-2xl mx-auto leading-relaxed">
                 Passionate about cybersecurity, artificial intelligence, and
-                software development. Currently pursuing M1 in Computer Science,
+                software development. Currently pursuing M2 in Cybersecurity,
                 exploring the intersection of security, AI algorithms, and
                 innovative coding solutions to build a safer digital future.
               </p>
