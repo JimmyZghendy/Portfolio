@@ -423,6 +423,19 @@ export default function Portfolio() {
       ],
       link: "https://booklending-frontend.vercel.app/",
     },
+    {
+      title: "Menu For Summer Festival",
+      description: "Menu For Summer Festival 🍔",
+      image: "/menu.png",
+      category: "Web-based Systems",
+      technologies: ["TypeScript", "React", "Tailwind", "Figma"],
+      features: [
+        "Menu in 2 languages (Arabic, English).",
+        "Menu is responsive and works on all devices.",
+        "Menu is designed to be easy to use and navigate.",
+      ],
+      link: "https://stjeanzebdine.vercel.app/",
+    },
   ];
 
   const experiences = [
