@@ -1534,7 +1534,7 @@ export default function Portfolio() {
                       className="text-gray-400 hover:text-blue-400 transition-colors"
                       onClick={() =>
                         window.open(
-                          "https://www.linkedin.com/in/your-profile",
+                          "https://www.linkedin.com/in/jimmy-zghendy/",
                           "_blank"
                         )
                       }
