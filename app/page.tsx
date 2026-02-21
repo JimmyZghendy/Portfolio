@@ -439,7 +439,7 @@ export default function Portfolio() {
   ];
 
   const experiences = [
-    {
+    /* {
       title: "Accounting Associate",
       company: "Municipality of Jounieh",
       location: "Jounieh, Lebanon (On-site)",
@@ -458,7 +458,7 @@ export default function Portfolio() {
         "Contract Management",
         "Compliance",
       ],
-    },
+    },*/
     {
       title: "Instructor Robotics",
       company: "Ombael",
@@ -532,7 +532,7 @@ export default function Portfolio() {
   const totalPages = Math.ceil(projects.length / projectsPerPage);
   const currentProjects = projects.slice(
     currentIndex * projectsPerPage,
-    (currentIndex + 1) * projectsPerPage
+    (currentIndex + 1) * projectsPerPage,
   );
 
   const nextProjects = () => {
@@ -771,8 +771,8 @@ export default function Portfolio() {
                           activeCard === index
                             ? "border-blue-400 shadow-2xl shadow-blue-500/40 scale-[1.03] bg-gray-900/95"
                             : scrollProgress > (index + 1) / experiences.length
-                            ? "border-blue-500/50 shadow-lg shadow-blue-500/20"
-                            : "border-blue-500/20 hover:border-blue-400/40"
+                              ? "border-blue-500/50 shadow-lg shadow-blue-500/20"
+                              : "border-blue-500/20 hover:border-blue-400/40"
                         }`}
                         style={{
                           boxShadow:
@@ -1378,7 +1378,7 @@ export default function Portfolio() {
                                         {feature}
                                       </span>
                                     </li>
-                                  )
+                                  ),
                                 )}
                               </ul>
 
@@ -1459,7 +1459,7 @@ export default function Portfolio() {
                     Showing {currentIndex * projectsPerPage + 1}-
                     {Math.min(
                       (currentIndex + 1) * projectsPerPage,
-                      projects.length
+                      projects.length,
                     )}{" "}
                     of {projects.length} projects
                   </span>
@@ -1535,7 +1535,7 @@ export default function Portfolio() {
                       onClick={() =>
                         window.open(
                           "https://www.linkedin.com/in/jimmy-zghendy/",
-                          "_blank"
+                          "_blank",
                         )
                       }
                     >
@@ -1558,7 +1558,7 @@ export default function Portfolio() {
                       onClick={() =>
                         window.open(
                           "https://www.instagram.com/jimmyzghendi/",
-                          "_blank"
+                          "_blank",
                         )
                       }
                     >
@@ -1571,7 +1571,7 @@ export default function Portfolio() {
                       onClick={() =>
                         window.open(
                           "https://www.facebook.com/jimmy.zghendy/",
-                          "_blank"
+                          "_blank",
                         )
                       }
                     >
