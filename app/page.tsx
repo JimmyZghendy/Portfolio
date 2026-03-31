@@ -439,26 +439,25 @@ export default function Portfolio() {
   ];
 
   const experiences = [
-    /* {
+    {
       title: "Accounting Associate",
-      company: "Municipality of Jounieh",
-      location: "Jounieh, Lebanon (On-site)",
-      period: "November 2024 - Present",
-      description:
-        "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently.",
-      details: [
+      company: "BMB",
+      location: "Beirut, Lebanon (On-site)",
+      period: "March 2025 - Present",
+      description: "Master Thesis Project",
+      /*details: [
         "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently.",
         "Worked with the Windows Subsystem for Linux (WSL) to enhance coding and system administration skills.",
         "Maintained accurate financial records and documentation for municipal operations.",
         "Collaborated with team members to streamline accounting processes and improve efficiency.",
-      ],
-      technologies: [
+      ],*/
+      /*technologies: [
         "WSL",
         "Financial Analysis",
         "Contract Management",
         "Compliance",
-      ],
-    },*/
+      ],*/
+    },
     {
       title: "Instructor Robotics",
       company: "Ombael",
