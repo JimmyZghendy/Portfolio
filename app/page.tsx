@@ -440,23 +440,23 @@ export default function Portfolio() {
 
   const experiences = [
     {
-      title: "Accounting Associate",
+      title: "Internship Researcher",
       company: "BMB",
       location: "Beirut, Lebanon (On-site)",
-      period: "March 2025 - Present",
+      period: "March 2026 - Present",
       description: "Master Thesis Project",
       /*details: [
-        "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently.",
-        "Worked with the Windows Subsystem for Linux (WSL) to enhance coding and system administration skills.",
-        "Maintained accurate financial records and documentation for municipal operations.",
-        "Collaborated with team members to streamline accounting processes and improve efficiency.",
-      ],*/
+      "Conducted daily verification of rental contracts and ensured accurate exchange rate compliance according to Central Bank of Lebanon, resolving discrepancies efficiently.",
+      "Worked with the Windows Subsystem for Linux (WSL) to enhance coding and system administration skills.",
+      "Maintained accurate financial records and documentation for municipal operations.",
+      "Collaborated with team members to streamline accounting processes and improve efficiency.",
+    ],*/
       /*technologies: [
-        "WSL",
-        "Financial Analysis",
-        "Contract Management",
-        "Compliance",
-      ],*/
+      "WSL",
+      "Financial Analysis",
+      "Contract Management",
+      "Compliance",
+    ],*/
     },
     {
       title: "Instructor Robotics",
@@ -816,22 +816,24 @@ export default function Portfolio() {
                               {exp.description.split(".")[0]}
                             </h4>
                             <ul className="space-y-2">
-                              {exp.details.map((detail, detailIndex) => (
-                                <li
-                                  key={detailIndex}
-                                  className="flex items-start text-gray-300 text-sm leading-relaxed"
-                                >
-                                  <span className="text-blue-400 mr-2 mt-1.5 text-xs">
-                                    •
-                                  </span>
-                                  <span>{detail}</span>
-                                </li>
-                              ))}
+                              {(exp.details ?? []).map(
+                                (detail, detailIndex) => (
+                                  <li
+                                    key={detailIndex}
+                                    className="flex items-start text-gray-300 text-sm leading-relaxed"
+                                  >
+                                    <span className="text-blue-400 mr-2 mt-1.5 text-xs">
+                                      •
+                                    </span>
+                                    <span>{detail}</span>
+                                  </li>
+                                ),
+                              )}
                             </ul>
                           </div>
 
                           <div className="flex flex-wrap gap-2">
-                            {exp.technologies.map((tech, techIndex) => (
+                            {(exp.technologies ?? []).map((tech, techIndex) => (
                               <span
                                 key={techIndex}
                                 className={`px-3 py-1 backdrop-blur-sm rounded-full text-sm border transition-all duration-200 ${
